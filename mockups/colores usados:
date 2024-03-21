@@ -5,3 +5,6 @@ color letras:#FFFFFF
 color botones: #FFFFFF
               #D61921
               #22B14C
+color bordes principales: #000000
+color bordes botones:#FFFFFF
+                     #22B14C
