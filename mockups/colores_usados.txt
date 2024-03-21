@@ -1,0 +1,10 @@
+color base app: #D61921
+       rgb:214,25,33
+color letras:#FFFFFF
+             #F25157
+color botones: #FFFFFF
+              #D61921
+              #22B14C
+color bordes principales: #000000
+color bordes botones:#FFFFFF
+                     #22B14C
