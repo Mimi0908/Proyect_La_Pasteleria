@@ -8,3 +8,4 @@ color botones: #FFFFFF
 color bordes principales: #000000
 color bordes botones:#FFFFFF
                      #22B14C
+tamaños en px de los JPanel:
