@@ -4,7 +4,7 @@ package principal;
 public class Principal {
 
     public static void main(String[] args) {
-        Pasteleria ventana= new Pasteleria();
+        Login ventana= new Login();
     }
     
 }
