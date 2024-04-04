@@ -48,12 +48,12 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(214, 25, 33));
+        jPanel1.setBackground(new java.awt.Color(179, 25, 33));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 0), new java.awt.Color(102, 0, 0)));
 
-        btnInicio.setBackground(new java.awt.Color(255, 246, 242));
+        btnInicio.setBackground(new java.awt.Color(179, 25, 33));
         btnInicio.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(214, 25, 33));
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("Inicio");
 
         jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
