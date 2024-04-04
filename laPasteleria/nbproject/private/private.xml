@@ -2,11 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Usuario/Desktop/proyectoOscar/Proyect_La_Pasteleria/laPasteleria/src/principal/PinPedido.java</file>
             <file>file:/C:/Users/Usuario/Desktop/proyectoOscar/Proyect_La_Pasteleria/laPasteleria/src/principal/PanelCrearPedidos.java</file>
             <file>file:/C:/Users/Usuario/Desktop/proyectoOscar/Proyect_La_Pasteleria/laPasteleria/src/principal/PanelCrearReservas.java</file>
             <file>file:/C:/Users/Usuario/Desktop/proyectoOscar/Proyect_La_Pasteleria/laPasteleria/src/principal/Ver_Reserva.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> b114b80472049aef132747fe1a44ca07795d94b2
     </open-files>
 </project-private>
