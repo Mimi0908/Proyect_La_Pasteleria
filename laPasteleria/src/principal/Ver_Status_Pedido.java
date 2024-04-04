@@ -38,8 +38,9 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
         textName = new javax.swing.JLabel();
         textDate = new javax.swing.JLabel();
         textStatusOrder = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
-        jPanel1.setBackground(new java.awt.Color(214, 25, 33));
+        jPanel1.setBackground(new java.awt.Color(179, 25, 33));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
@@ -67,20 +68,22 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ESTADO DEL PEDIDO:");
 
-        btnStart.setBackground(new java.awt.Color(215, 25, 33));
+        btnStart.setBackground(new java.awt.Color(179, 25, 33));
         btnStart.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnStart.setForeground(new java.awt.Color(255, 255, 255));
         btnStart.setText("SIN EMPEZAR");
 
-        btnFinish.setBackground(new java.awt.Color(215, 25, 33));
+        btnFinish.setBackground(new java.awt.Color(179, 25, 33));
         btnFinish.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnFinish.setForeground(new java.awt.Color(255, 255, 255));
         btnFinish.setText("TERMINADO");
 
-        btnMaking.setBackground(new java.awt.Color(215, 25, 33));
+        btnMaking.setBackground(new java.awt.Color(179, 25, 33));
         btnMaking.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnMaking.setForeground(new java.awt.Color(255, 255, 255));
         btnMaking.setText("HACIENDO");
+
+        imgPasteleria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         textOrder.setBackground(new java.awt.Color(255, 255, 255));
         textOrder.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -108,6 +111,20 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(imgPasteleria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textName)
+                    .addComponent(textOrder)
+                    .addComponent(textDate)
+                    .addComponent(textStatusOrder))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,26 +136,18 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
                         .addComponent(btnFinish)
                         .addGap(45, 45, 45))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textName)
-                            .addComponent(textOrder)
-                            .addComponent(textDate)
-                            .addComponent(textStatusOrder))
-                        .addGap(71, 71, 71))))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(141, 141, 141))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(imgPasteleria, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(imgPasteleria, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -156,7 +165,7 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
                         .addComponent(textDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(textStatusOrder)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnStart)
                     .addComponent(btnMaking)
@@ -188,6 +197,7 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel textDate;
     private javax.swing.JLabel textName;
     private javax.swing.JLabel textOrder;

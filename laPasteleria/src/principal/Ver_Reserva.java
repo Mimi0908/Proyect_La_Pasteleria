@@ -25,7 +25,7 @@ public class Ver_Reserva extends javax.swing.JPanel {
         imgPasteleria = new javax.swing.JLabel();
         titleReserve = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(214, 25, 33));
+        jPanel1.setBackground(new java.awt.Color(179, 25, 33));
 
         imgPasteleria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         imgPasteleria.setForeground(new java.awt.Color(255, 255, 255));

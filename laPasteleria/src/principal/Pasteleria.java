@@ -46,24 +46,24 @@ public class Pasteleria extends javax.swing.JFrame {
         menu.setBackground(new java.awt.Color(214, 25, 33));
         menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 0), new java.awt.Color(102, 0, 0)));
 
-        btnReservas.setBackground(new java.awt.Color(255, 246, 242));
+        btnReservas.setBackground(new java.awt.Color(214, 25, 33));
         btnReservas.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnReservas.setForeground(new java.awt.Color(214, 25, 33));
+        btnReservas.setForeground(new java.awt.Color(255, 255, 255));
         btnReservas.setText("Reservas");
 
-        btnEncargos.setBackground(new java.awt.Color(255, 246, 242));
+        btnEncargos.setBackground(new java.awt.Color(214, 25, 33));
         btnEncargos.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnEncargos.setForeground(new java.awt.Color(214, 25, 33));
+        btnEncargos.setForeground(new java.awt.Color(255, 255, 255));
         btnEncargos.setText("Encargos");
 
-        btnFacturas.setBackground(new java.awt.Color(255, 246, 242));
+        btnFacturas.setBackground(new java.awt.Color(214, 25, 33));
         btnFacturas.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnFacturas.setForeground(new java.awt.Color(214, 25, 33));
+        btnFacturas.setForeground(new java.awt.Color(255, 255, 255));
         btnFacturas.setText("Facturas");
 
-        btnSalida.setBackground(new java.awt.Color(255, 246, 242));
+        btnSalida.setBackground(new java.awt.Color(214, 25, 33));
         btnSalida.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnSalida.setForeground(new java.awt.Color(214, 25, 33));
+        btnSalida.setForeground(new java.awt.Color(255, 255, 255));
         btnSalida.setText("Salir");
         btnSalida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
