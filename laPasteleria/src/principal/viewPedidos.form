@@ -63,9 +63,9 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="cajaIcono" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
                       <Component id="btnSalida" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
-                      <Component id="btnFacturas" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
-                      <Component id="btnEncargos" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
-                      <Component id="btnReservas" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="btnEditar" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="btnVer" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
+                      <Component id="btnCrear" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
@@ -77,11 +77,11 @@
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="cajaIcono" min="-2" pref="180" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnReservas" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCrear" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="btnEncargos" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVer" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnFacturas" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEditar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="btnSalida" max="-2" attributes="0"/>
                   <EmptySpace pref="21" max="32767" attributes="0"/>
@@ -90,7 +90,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnReservas">
+        <Component class="javax.swing.JButton" name="btnCrear">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f2" green="f6" red="ff" type="rgb"/>
@@ -104,7 +104,7 @@
             <Property name="text" type="java.lang.String" value="Crear"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnEncargos">
+        <Component class="javax.swing.JButton" name="btnVer">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f2" green="f6" red="ff" type="rgb"/>
@@ -117,8 +117,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Ver"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnFacturas">
+        <Component class="javax.swing.JButton" name="btnEditar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f2" green="f6" red="ff" type="rgb"/>
