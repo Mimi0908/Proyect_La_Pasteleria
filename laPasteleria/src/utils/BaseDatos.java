@@ -75,7 +75,43 @@ public class BaseDatos {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	}   
     }
-    
+    public void imprimirDatosEncargoPaginaEstado(int id_encargo, JTextField cajaorden, JTextField cajanombre, JTextField cajafechai, JTextField cajafechaf, JTextField cajadescrip, JTextField cajaestado){
+        ResultSet registros = null;
+        ResultSet registrosPersonas = null;
+	try {
+	    String consulta = "SELECT * FROM encargo WHERE Id_encargo='"+id_encargo+"' ";
+	    registros = manipularDB.executeQuery(consulta);
+	    registros.next();
+            String idPersona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("persona_Id")+"'";
+            registrosPersonas = manipularDB.executeQuery(consulta);
+	    registrosPersonas.next();
+            cajaorden.setText(registros.getString("Id_encargo"));
+	    cajanombre.setText(registrosPersonas.getString("Nombre"));
+            cajafechaf.setText(registros.getString("FehcaEntrega"));
+            cajadescrip.setText(registros.getString("Descripcion"));
+            cajaestado.setText(registros.getString("Estado"));
+	} catch (SQLException ex) {
+	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
+	}   
+    }
+    public void imprimirDatosReservaPaginaEstado(int id_reserva, JTextField cajaorden, JTextField cajanombre, JTextField cajafechaf, JTextField cajadescrip){
+        ResultSet registros = null;
+        ResultSet registrosPersonas = null;
+	try {
+	    String consulta = "SELECT * FROM reserva WHERE ID_reserva='"+id_reserva+"' ";
+	    registros = manipularDB.executeQuery(consulta);
+	    registros.next();
+            String idPersona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("persona_Id")+"'";
+            registrosPersonas = manipularDB.executeQuery(consulta);
+	    registrosPersonas.next();
+            cajaorden.setText(registros.getString("Id_encargo"));
+	    cajanombre.setText(registrosPersonas.getString("Nombre"));
+            cajafechaf.setText(registros.getString("FehcaReserva"));
+            cajadescrip.setText(registros.getString("Anexos"));
+	} catch (SQLException ex) {
+	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
+	}   
+    }
     public void imprimirDatosReservas(DefaultTableModel modelo){
         ResultSet registros = null;
         modelo.setRowCount(0);
@@ -133,7 +169,7 @@ public class BaseDatos {
             String estado= "en espera";
             int id_Persona=documento;
 
-            String consulta = "INSERT INTO encargo ( FechaPedido, FechaEntrega, Descripcion, Precio, Abono, SaldoPendiente, Estado, persona_Id, id_usuario) VALUES ('"+fechaPedido+"','"+fechaEntrega+"','"+descripcion+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+estado+"','"+id_Persona+"')";
+            String consulta = "INSERT INTO encargo ( FechaPedido, FechaEntrega, Descripcion, Precio, Abono, SaldoPendiente, Estado, persona_Id, id_usuario) VALUES ('"+fechaPedido+"','"+fechaEntrega+"','"+descripcion+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+estado+"','"+id_Persona+"','"+id_Persona+"')";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -159,7 +195,7 @@ public class BaseDatos {
             int abono=abonado;
             int saldoPendiente=saldoP;
 
-            String consulta = "INSERT INTO reserva (persona_id, FechaReserva, Zona, horaReserva, Anexos, Precio, Abono, SaldoPendiente ) VALUES ('"+persona+"','"+fechaReserva+"','"+lugar+"','"+hora+"','"+descrip+"','"+precio+"','"+abono+"','"+saldoPendiente+"')";
+            String consulta = "INSERT INTO reserva (persona_id, FechaReserva, Zona, horaReserva, Anexos, Precio, Abono, SaldoPendiente,id_usuario ) VALUES ('"+persona+"','"+fechaReserva+"','"+lugar+"','"+hora+"','"+descrip+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+id_persona+"')";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -173,47 +209,58 @@ public class BaseDatos {
             System.out.println("No se pudo insertar");
         } 
     }
-    public void buscarDatosReserva(String documento, JTextField cajanombre, JTextField cajaapellidos, JTextField cajatel, JTextField cajaemail){
+    public void buscarDatosReserva(int ID_reserva, JTextField cajanombre, JTextField cajafecha, JTextField cajaHora, JTextField cajaZona, JTextField cajaDesc){
         ResultSet registros = null;
+        ResultSet registrosPersonas = null;
+        ResultSet registrosZona = null;
 	try {
-	    String consulta = "SELECT * FROM personas WHERE cedula='"+documento+"' ";
+	    String consulta = "SELECT * FROM reserva WHERE ID_reserva='"+ID_reserva+"' ";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
-            cajanombre.setText(registros.getString("nombres"));
-            cajaapellidos.setText(registros.getString("Apellidos"));
-            cajatel.setText(registros.getString("telefono"));
-            cajaemail.setText(registros.getString("email"));
+            String idPersona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("persona_id")+"'";
+            registrosPersonas = manipularDB.executeQuery(consulta);
+	    registrosPersonas.next();
+            String idZona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("Zona")+"'";
+            registrosZona = manipularDB.executeQuery(consulta);
+	    registrosZona.next();
+            cajanombre.setText(registrosPersonas.getString("Nombre"));
+            cajafecha.setText(registros.getString("FechaReserva"));
+            cajaHora.setText(registros.getString("horaReserva"));
+            cajaZona.setText(registrosZona.getString("nombre"));
+            cajaDesc.setText(registros.getString("Anexos"));
 	    
 	} catch (SQLException ex) {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	}   
     }
-    public void buscarDatosEncargo(String documento, JTextField cajanombre, JTextField cajaapellidos, JTextField cajatel, JTextField cajaemail){
+    public void buscarDatosEncargo(int id_encargo, JTextField cajanombre, JTextField cajafechai, JTextField cajafechaf, JTextField cajadescrip, JTextField cajaestado){
         ResultSet registros = null;
+        ResultSet registrosPersonas = null;
 	try {
-	    String consulta = "SELECT * FROM personas WHERE cedula='"+documento+"' ";
+	    String consulta = "SELECT * FROM encargo WHERE Id_encargo='"+id_encargo+"' ";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
-            cajanombre.setText(registros.getString("nombres"));
-            cajaapellidos.setText(registros.getString("Apellidos"));
-            cajatel.setText(registros.getString("telefono"));
-            cajaemail.setText(registros.getString("email"));
+            String idPersona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("persona_Id")+"'";
+            registrosPersonas = manipularDB.executeQuery(consulta);
+	    registrosPersonas.next();
+            cajanombre.setText(registrosPersonas.getString("Nombre"));
+            cajafechai.setText(registros.getString("FechaPedido"));
+            cajafechaf.setText(registros.getString("FehcaEntrega"));
+            cajadescrip.setText(registros.getString("Descripcion"));
+            cajaestado.setText(registros.getString("Estado"));
 	    
 	} catch (SQLException ex) {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	}   
     }
-    public void editarDatos(String documento, String nombre, String apellido, String tel, String correo){
+    public void editarDatosReserva(int id_reserva, String fechaR, String horaR, String descripcion){
         respuesta = false;
         try {
-            String cedula = documento;
-            String nombres = nombre;
-            String apellidos = apellido;
-            String direccion = "null";
-            String telefono = tel;
-            String email = correo;
+            String fecha = fechaR;
+            String hora = horaR;
+            String anexos= descripcion;
 
-            String consulta = "UPDATE personas SET nombres='"+nombres+"', apellidos='"+apellidos+"', direccion='"+direccion+"', telefono='"+telefono+"', email='"+email+"' WHERE cedula='"+cedula+"' ";
+            String consulta = "UPDATE reserva SET  FechaReserva='"+fecha+"', horaReserva='"+hora+"', Anexos='"+anexos+"' WHERE ID_reserva='"+id_reserva+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -227,12 +274,51 @@ public class BaseDatos {
             System.out.println("No se pudo Editar");
         }  
     }
-    public void eliminarDatos( String documento){
+    public void editarDatosEncargo(int id_encargo, String fechaE, String descripcion){
         respuesta = false;
         try {
-            String cedula = documento;
+            String fechaF = fechaE;
+            String anexos= descripcion;
 
-            String consulta = "DELETE FROM personas WHERE cedula='"+cedula+"' ";
+            String consulta = "UPDATE encargo SET fechaEntrega='"+fechaE+"', Anexos='"+anexos+"' WHERE Id_encargo='"+id_encargo+"' ";
+            int resp_consulta = manipularDB.executeUpdate(consulta);
+            if (resp_consulta==1) {
+                respuesta = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("--> Error Update: " + ex.getMessage());
+        }
+        if (respuesta){
+            System.out.println("Editado con exito");
+        }else{
+            System.out.println("No se pudo Editar");
+        }  
+    }
+    public void editarEstadoEncargo(int id_encargo, String est){
+        respuesta = false;
+        try {
+            String estado = est;
+
+            String consulta = "UPDATE encargo SET  Estado='"+estado+"' WHERE ID_reserva='"+id_encargo+"' ";
+            int resp_consulta = manipularDB.executeUpdate(consulta);
+            if (resp_consulta==1) {
+                respuesta = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("--> Error Update: " + ex.getMessage());
+        }
+        if (respuesta){
+            System.out.println("Editado con exito");
+        }else{
+            System.out.println("No se pudo Editar");
+        }  
+    }
+    public void eliminarDatosReserva(int idReserva){
+        respuesta = false;
+        try {
+            int cedula = idReserva;
+
+            String consulta = "DELETE FROM reserva WHERE cedula='"+cedula+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -246,5 +332,43 @@ public class BaseDatos {
             System.out.println("No se pudo Eliminar");
         } 
     }
-    
+    public void eliminarDatosEncargo(int idEncargo){
+        respuesta = false;
+        try {
+            int cedula = idEncargo;
+
+            String consulta = "DELETE FROM encargo WHERE cedula='"+cedula+"' ";
+            int resp_consulta = manipularDB.executeUpdate(consulta);
+            if (resp_consulta==1) {
+                respuesta = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("--> Error Delete: " + ex.getMessage());
+        }
+        if (respuesta){
+            System.out.println("Eliminado con exito");
+        }else{
+            System.out.println("No se pudo Eliminar");
+        } 
+    }
+    public void login(int usuario, String contraseña){
+        ResultSet registrosusuario = null;
+        ResultSet registroscontraseña = null;
+        respuesta = false;
+	try {
+	    String consulta = "SELECT * FROM usuarios WHERE IdUsuario='"+usuario+"' ";
+	    registrosusuario = manipularDB.executeQuery(consulta);
+	    String consulta2 = "SELECT * FROM usuarios WHERE contraseña='"+contraseña+"' ";
+	    registroscontraseña = manipularDB.executeQuery(consulta2);
+            
+	    
+	} catch (SQLException ex) {
+	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
+	} 
+        if (respuesta){
+            System.out.println("Bienvenido");
+        }else{
+            System.out.println("Incorrecto");
+        }  
+    }
 }
