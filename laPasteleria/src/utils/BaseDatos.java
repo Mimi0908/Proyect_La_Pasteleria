@@ -75,43 +75,6 @@ public class BaseDatos {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	}   
     }
-    public void imprimirDatosEncargoPaginaEstado(int id_encargo, JTextField cajaorden, JTextField cajanombre, JTextField cajafechai, JTextField cajafechaf, JTextField cajadescrip, JTextField cajaestado){
-        ResultSet registros = null;
-        ResultSet registrosPersonas = null;
-	try {
-	    String consulta = "SELECT * FROM encargo WHERE Id_encargo='"+id_encargo+"' ";
-	    registros = manipularDB.executeQuery(consulta);
-	    registros.next();
-            String idPersona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("persona_Id")+"'";
-            registrosPersonas = manipularDB.executeQuery(consulta);
-	    registrosPersonas.next();
-            cajaorden.setText(registros.getString("Id_encargo"));
-	    cajanombre.setText(registrosPersonas.getString("Nombre"));
-            cajafechaf.setText(registros.getString("FehcaEntrega"));
-            cajadescrip.setText(registros.getString("Descripcion"));
-            cajaestado.setText(registros.getString("Estado"));
-	} catch (SQLException ex) {
-	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
-	}   
-    }
-    public void imprimirDatosReservaPaginaEstado(int id_reserva, JTextField cajaorden, JTextField cajanombre, JTextField cajafechaf, JTextField cajadescrip){
-        ResultSet registros = null;
-        ResultSet registrosPersonas = null;
-	try {
-	    String consulta = "SELECT * FROM reserva WHERE ID_reserva='"+id_reserva+"' ";
-	    registros = manipularDB.executeQuery(consulta);
-	    registros.next();
-            String idPersona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("persona_Id")+"'";
-            registrosPersonas = manipularDB.executeQuery(consulta);
-	    registrosPersonas.next();
-            cajaorden.setText(registros.getString("Id_encargo"));
-	    cajanombre.setText(registrosPersonas.getString("Nombre"));
-            cajafechaf.setText(registros.getString("FehcaReserva"));
-            cajadescrip.setText(registros.getString("Anexos"));
-	} catch (SQLException ex) {
-	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
-	}   
-    }
     public void imprimirDatosReservas(DefaultTableModel modelo){
         ResultSet registros = null;
         modelo.setRowCount(0);
@@ -157,7 +120,7 @@ public class BaseDatos {
             System.out.println("No se pudo insertar");
         } 
     }
-    public void insertarDatosEncargo(String fechaI, String fechaF, String anexos, int preciof, int abonado, int saldoP,int documento){
+    public void insertarDatosEncargo(String fechaI, String fechaF, String anexos, int preciof, int abonado, int saldoP,int documento, int id_Ususario){
         
         try { 
             String fechaPedido = fechaI;
@@ -169,7 +132,7 @@ public class BaseDatos {
             String estado= "en espera";
             int id_Persona=documento;
 
-            String consulta = "INSERT INTO encargo ( FechaPedido, FechaEntrega, Descripcion, Precio, Abono, SaldoPendiente, Estado, persona_Id, id_usuario) VALUES ('"+fechaPedido+"','"+fechaEntrega+"','"+descripcion+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+estado+"','"+id_Persona+"','"+id_Persona+"')";
+            String consulta = "INSERT INTO encargo ( FechaPedido, FechaEntrega, Descripcion, Precio, Abono, SaldoPendiente, Estado, persona_Id, id_usuario) VALUES ('"+fechaPedido+"','"+fechaEntrega+"','"+descripcion+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+estado+"','"+id_Persona+"','"+id_Ususario+"')";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -183,7 +146,7 @@ public class BaseDatos {
             System.out.println("No se pudo insertar");
         } 
     }
-    public void insertarDatosReservas(int id_persona, String fechaR, int zona, String horaR, String anexos, int preciof, int abonado, int saldoP){
+    public void insertarDatosReservas(int id_persona, String fechaR, int zona, String horaR, String anexos, int preciof, int abonado, int saldoP, int id_usuario){
         
         try {
             int persona=id_persona;
@@ -195,7 +158,7 @@ public class BaseDatos {
             int abono=abonado;
             int saldoPendiente=saldoP;
 
-            String consulta = "INSERT INTO reserva (persona_id, FechaReserva, Zona, horaReserva, Anexos, Precio, Abono, SaldoPendiente,id_usuario ) VALUES ('"+persona+"','"+fechaReserva+"','"+lugar+"','"+hora+"','"+descrip+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+id_persona+"')";
+            String consulta = "INSERT INTO reserva (persona_id, FechaReserva, Zona, horaReserva, Anexos, Precio, Abono, SaldoPendiente,id_usuario ) VALUES ('"+persona+"','"+fechaReserva+"','"+lugar+"','"+hora+"','"+descrip+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+id_usuario+"')";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -209,50 +172,41 @@ public class BaseDatos {
             System.out.println("No se pudo insertar");
         } 
     }
-    public void buscarDatosReserva(int ID_reserva, JTextField cajanombre, JTextField cajafecha, JTextField cajaHora, JTextField cajaZona, JTextField cajaDesc){
+    
+    public Reserva buscarDatosReserva(int id_reserva){
         ResultSet registros = null;
-        ResultSet registrosPersonas = null;
-        ResultSet registrosZona = null;
+        Reserva datos= null;
 	try {
-	    String consulta = "SELECT * FROM reserva WHERE ID_reserva='"+ID_reserva+"' ";
+	    String consulta = "SELECT persona.Nombre, persona.Apellido, reserva.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado, zonas.nombre AS nombreZona FROM (((reserva INNER JOIN persona ON reserva.persona_id=persona.ID_persona)INNER JOIN usuarios ON reserva.id_usuario=usuarios.IdUsuarios) INNER JOIN zonas ON reserva.Zona = zonas.idZonas)WHERE reserva.Id_encargo='"+id_reserva+"' ";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
-            String idPersona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("persona_id")+"'";
-            registrosPersonas = manipularDB.executeQuery(consulta);
-	    registrosPersonas.next();
-            String idZona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("Zona")+"'";
-            registrosZona = manipularDB.executeQuery(consulta);
-	    registrosZona.next();
-            cajanombre.setText(registrosPersonas.getString("Nombre"));
-            cajafecha.setText(registros.getString("FechaReserva"));
-            cajaHora.setText(registros.getString("horaReserva"));
-            cajaZona.setText(registrosZona.getString("nombre"));
-            cajaDesc.setText(registros.getString("Anexos"));
-	    
+            if(registros.getRow()==1){
+                datos= new Reserva(registros.getInt("id_reserva"), registros.getString("Nombre"+" "+"Apellido"),registros.getString("FechaReserva"),registros.getString("horaReserva"), registros.getString("nombreZona"),registros.getString("Anexos"),registros.getInt("Precio"),registros.getInt("Abono"),registros.getInt("SaldoPendiente"),registros.getString("nombreEncargado"+" "+"apellidoEncargado"));
+            }
+            
 	} catch (SQLException ex) {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
-	}   
+	}  
+        return datos;  
     }
-    public void buscarDatosEncargo(int id_encargo, JTextField cajanombre, JTextField cajafechai, JTextField cajafechaf, JTextField cajadescrip, JTextField cajaestado){
-        ResultSet registros = null;
-        ResultSet registrosPersonas = null;
+    
+    public Encargo buscarDatosEncargo(int id_encargo){
+         ResultSet registros = null;
+        Encargo datos= null;
 	try {
-	    String consulta = "SELECT * FROM encargo WHERE Id_encargo='"+id_encargo+"' ";
+	    String consulta = "SELECT persona.Nombre, persona.Apellido, encargo.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado FROM ((encargo INNER JOIN persona ON encargo.persona_Id=persona.ID_persona)INNER JOIN usuarios ON encargo.id_usuario=usuarios.IdUsuarios )WHERE encargo.Id_encargo='"+id_encargo+"' ";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
-            String idPersona ="SELECT * FROM persona WHERE ID_persona='"+registros.getInt("persona_Id")+"'";
-            registrosPersonas = manipularDB.executeQuery(consulta);
-	    registrosPersonas.next();
-            cajanombre.setText(registrosPersonas.getString("Nombre"));
-            cajafechai.setText(registros.getString("FechaPedido"));
-            cajafechaf.setText(registros.getString("FehcaEntrega"));
-            cajadescrip.setText(registros.getString("Descripcion"));
-            cajaestado.setText(registros.getString("Estado"));
-	    
+            if(registros.getRow()==1){
+                datos= new Encargo(registros.getInt("id_encargo"), registros.getString("FechaPedido"),registros.getString("FechaEntrega"), registros.getString("Descripcion"),registros.getInt("Precio"),registros.getInt("Abono"),registros.getInt("SaldoPendiente"),registros.getString("Estado"),registros.getString("Nombre"+" "+"Apellido"),registros.getString("nombreEncargado"+" "+"apellidoEncargado"));
+            }
+            
 	} catch (SQLException ex) {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
-	}   
+	}  
+        return datos;
     }
+    
     public void editarDatosReserva(int id_reserva, String fechaR, String horaR, String descripcion){
         respuesta = false;
         try {
@@ -318,7 +272,7 @@ public class BaseDatos {
         try {
             int cedula = idReserva;
 
-            String consulta = "DELETE FROM reserva WHERE cedula='"+cedula+"' ";
+            String consulta = "DELETE FROM reserva WHERE ID_reserva='"+cedula+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -337,7 +291,7 @@ public class BaseDatos {
         try {
             int cedula = idEncargo;
 
-            String consulta = "DELETE FROM encargo WHERE cedula='"+cedula+"' ";
+            String consulta = "DELETE FROM encargo WHERE Id_encargo='"+cedula+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -351,24 +305,24 @@ public class BaseDatos {
             System.out.println("No se pudo Eliminar");
         } 
     }
-    public void login(int usuario, String contraseña){
-        ResultSet registrosusuario = null;
-        ResultSet registroscontraseña = null;
+    public Usuarios login(int usuario, String contraseña){
+        ResultSet registro = null;
+        Usuarios data=null;
         respuesta = false;
 	try {
-	    String consulta = "SELECT * FROM usuarios WHERE IdUsuario='"+usuario+"' ";
-	    registrosusuario = manipularDB.executeQuery(consulta);
-	    String consulta2 = "SELECT * FROM usuarios WHERE contraseña='"+contraseña+"' ";
-	    registroscontraseña = manipularDB.executeQuery(consulta2);
+	    String consulta = "SELECT * FROM usuarios WHERE IdUsuario='"+usuario+"' AND contraseña='"+contraseña+"' ";
+	    registro = manipularDB.executeQuery(consulta);
+            registro.next();
+            if(registro.getRow()==1){
+                data= new Usuarios(registro.getInt("IdUsusario"),registro.getString("contraseña"),registro.getString("cargo"),registro.getString("Nombre"),registro.getString("Apellido"),registro.getInt("Telefono"));
+            }else{
+                data=null;
+            }
             
 	    
 	} catch (SQLException ex) {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	} 
-        if (respuesta){
-            System.out.println("Bienvenido");
-        }else{
-            System.out.println("Incorrecto");
-        }  
+        return data;
     }
 }
