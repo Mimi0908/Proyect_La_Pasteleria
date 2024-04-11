@@ -27,9 +27,9 @@ public class viewPedidos extends javax.swing.JFrame {
     private void initComponents() {
 
         menu = new javax.swing.JPanel();
-        btnReservas = new javax.swing.JButton();
-        btnEncargos = new javax.swing.JButton();
-        btnFacturas = new javax.swing.JButton();
+        btnCrear = new javax.swing.JButton();
+        btnVer = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         btnSalida = new javax.swing.JButton();
         cajaIcono = new javax.swing.JLabel();
         pantallaInicial = new javax.swing.JPanel();
@@ -41,20 +41,25 @@ public class viewPedidos extends javax.swing.JFrame {
         menu.setBackground(new java.awt.Color(214, 25, 33));
         menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 0), new java.awt.Color(102, 0, 0)));
 
-        btnReservas.setBackground(new java.awt.Color(255, 246, 242));
-        btnReservas.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnReservas.setForeground(new java.awt.Color(214, 25, 33));
-        btnReservas.setText("Crear");
+        btnCrear.setBackground(new java.awt.Color(255, 246, 242));
+        btnCrear.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        btnCrear.setForeground(new java.awt.Color(214, 25, 33));
+        btnCrear.setText("Crear");
 
-        btnEncargos.setBackground(new java.awt.Color(255, 246, 242));
-        btnEncargos.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnEncargos.setForeground(new java.awt.Color(214, 25, 33));
-        btnEncargos.setText("Ver");
+        btnVer.setBackground(new java.awt.Color(255, 246, 242));
+        btnVer.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        btnVer.setForeground(new java.awt.Color(214, 25, 33));
+        btnVer.setText("Ver");
+        btnVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerActionPerformed(evt);
+            }
+        });
 
-        btnFacturas.setBackground(new java.awt.Color(255, 246, 242));
-        btnFacturas.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnFacturas.setForeground(new java.awt.Color(214, 25, 33));
-        btnFacturas.setText("Editar");
+        btnEditar.setBackground(new java.awt.Color(255, 246, 242));
+        btnEditar.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(214, 25, 33));
+        btnEditar.setText("Editar");
 
         btnSalida.setBackground(new java.awt.Color(255, 246, 242));
         btnSalida.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
@@ -73,9 +78,9 @@ public class viewPedidos extends javax.swing.JFrame {
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cajaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEncargos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
@@ -84,11 +89,11 @@ public class viewPedidos extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(cajaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnReservas)
+                .addComponent(btnCrear)
                 .addGap(18, 18, 18)
-                .addComponent(btnEncargos)
+                .addComponent(btnVer)
                 .addGap(18, 18, 18)
-                .addComponent(btnFacturas)
+                .addComponent(btnEditar)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalida)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -141,6 +146,10 @@ public class viewPedidos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -177,10 +186,10 @@ public class viewPedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEncargos;
-    private javax.swing.JButton btnFacturas;
-    private javax.swing.JButton btnReservas;
+    private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnSalida;
+    private javax.swing.JButton btnVer;
     private javax.swing.JLabel cajaIcono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel logotipo;
