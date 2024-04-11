@@ -33,16 +33,16 @@ public class PinPedido extends javax.swing.JPanel {
         etqNombre = new javax.swing.JLabel();
         campoNombre = new javax.swing.JTextField();
         etqFechaPedido = new javax.swing.JLabel();
-        campoFechaPedido = new javax.swing.JTextField();
         etqDescripcion = new javax.swing.JLabel();
         campoDescripcion = new javax.swing.JTextField();
         etqFechaEntrega = new javax.swing.JLabel();
-        campoFechaEntrega = new javax.swing.JTextField();
         etqNota = new javax.swing.JLabel();
         campoNota = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(179, 25, 33));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -71,12 +71,6 @@ public class PinPedido extends javax.swing.JPanel {
         etqFechaEntrega.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         etqFechaEntrega.setForeground(new java.awt.Color(255, 255, 255));
         etqFechaEntrega.setText("FECHA DE ENTREGA:");
-
-        campoFechaEntrega.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoFechaEntregaActionPerformed(evt);
-            }
-        });
 
         etqNota.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         etqNota.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,7 +107,7 @@ public class PinPedido extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etqFechaPedido)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campoFechaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etqDescripcion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -121,7 +115,7 @@ public class PinPedido extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etqFechaEntrega)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campoFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnCancelar)
                                 .addGroup(layout.createSequentialGroup()
@@ -164,17 +158,17 @@ public class PinPedido extends javax.swing.JPanel {
                     .addComponent(etqNombre)
                     .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(etqFechaPedido)
-                    .addComponent(campoFechaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etqDescripcion)
                     .addComponent(campoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(etqFechaEntrega)
-                    .addComponent(campoFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etqNota)
@@ -183,13 +177,9 @@ public class PinPedido extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnGuardar))
-                .addGap(0, 55, Short.MAX_VALUE))
+                .addGap(0, 57, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void campoFechaEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoFechaEntregaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoFechaEntregaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -197,8 +187,6 @@ public class PinPedido extends javax.swing.JPanel {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JTextField campoDescripcion;
-    private javax.swing.JTextField campoFechaEntrega;
-    private javax.swing.JTextField campoFechaPedido;
     private javax.swing.JTextField campoNombre;
     private javax.swing.JTextField campoNota;
     private javax.swing.JTextField campoPin;
@@ -207,6 +195,8 @@ public class PinPedido extends javax.swing.JPanel {
     private javax.swing.JLabel etqFechaPedido;
     private javax.swing.JLabel etqNombre;
     private javax.swing.JLabel etqNota;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
