@@ -15,7 +15,14 @@ public class viewReservas extends javax.swing.JFrame {
      */
     public viewReservas() {
         initComponents();
+        initAlternComponent();
     }
+       public void initAlternComponent(){
+         setTitle("pasteles reservas");
+         setResizable(false);
+        setVisible(true);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,22 +52,42 @@ public class viewReservas extends javax.swing.JFrame {
         btnCrear.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnCrear.setForeground(new java.awt.Color(214, 25, 33));
         btnCrear.setText("Crear");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
 
         btnVer.setBackground(new java.awt.Color(255, 246, 242));
         btnVer.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnVer.setForeground(new java.awt.Color(214, 25, 33));
         btnVer.setText("Ver");
+        btnVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerActionPerformed(evt);
+            }
+        });
 
         btnEditar.setBackground(new java.awt.Color(255, 246, 242));
         btnEditar.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(214, 25, 33));
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnSalida.setBackground(new java.awt.Color(255, 246, 242));
         btnSalida.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnSalida.setForeground(new java.awt.Color(214, 25, 33));
         btnSalida.setText("Salir");
         btnSalida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalidaActionPerformed(evt);
+            }
+        });
 
         cajaIcono.setToolTipText("");
 
@@ -141,6 +168,52 @@ public class viewReservas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        pantallaInicial.removeAll();
+     // creara una instancia del nuevo contenedor
+     PanelCrearReservas nuevo=new PanelCrearReservas();
+     // ajustar el tamaño del nuevo contenedor
+     nuevo.setSize(pantallaInicial.getSize());
+     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+     // agregar el nuevo contenedor dentro del contenedor principal
+     pantallaInicial.add(nuevo);
+     // renderizar revalidaded o repade
+     revalidate();
+        repaint();
+    }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        pantallaInicial.removeAll();
+     // creara una instancia del nuevo contenedor
+     Ver_Reserva nuevo=new Ver_Reserva();
+     // ajustar el tamaño del nuevo contenedor
+     nuevo.setSize(pantallaInicial.getSize());
+     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+     // agregar el nuevo contenedor dentro del contenedor principal
+     pantallaInicial.add(nuevo);
+     // renderizar revalidaded o repade
+     revalidate();
+        repaint();
+    }//GEN-LAST:event_btnVerActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+         pantallaInicial.removeAll();
+     // creara una instancia del nuevo contenedor
+     Editar_Reservas nuevo=new Editar_Reservas();
+     // ajustar el tamaño del nuevo contenedor
+     nuevo.setSize(pantallaInicial.getSize());
+     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+     // agregar el nuevo contenedor dentro del contenedor principal
+     pantallaInicial.add(nuevo);
+     // renderizar revalidaded o repade
+     revalidate();
+        repaint();
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalidaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -169,11 +242,7 @@ public class viewReservas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new viewReservas().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
