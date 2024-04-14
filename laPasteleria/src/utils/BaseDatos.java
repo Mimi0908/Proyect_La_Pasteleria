@@ -9,7 +9,7 @@ public class BaseDatos {
     
     Connection conexion;
     Statement manipularDB;
-    boolean respuesta = false;
+    
     
     public BaseDatos(){
         
@@ -32,16 +32,21 @@ public class BaseDatos {
         
         
     }
+    //funcion para imprimir los datos de la tabla persona en una tabla
     public void imprimirDatosPersona(DefaultTableModel modelo){
+        //se crea la tabla y el metodo donde se guarda los datos
         ResultSet registros = null;
         modelo.setRowCount(0);
         int i=1;
 	try {
+            //se cogen los datos
 	    String consulta = "SELECT * FROM persona";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
+            //si los datos estan en primera fila 
 	    if(registros.getRow()==1){
 	        do{
+                    //se colocan todos los datos de las personas
                     Object datos1 []= new Object[]{i, registros.getString("ID_persona"), registros.getString("Nombre")+" "+registros.getNString("Apellido"), registros.getString("Telefono"), registros.getString("Email")};
                     modelo.addRow(datos1);
                     i++;
@@ -53,17 +58,21 @@ public class BaseDatos {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	}   
     }
-    
+    //se imprimen los datos de los encargos en una tabla
     public void imprimirDatosEncargo(DefaultTableModel modelo){
+        //se crea la tabla y el metodo donde se guarda los datos
         ResultSet registros = null;
         modelo.setRowCount(0);
         int i=1;
 	try {
+            //se cogen los datos
 	    String consulta = "SELECT * FROM encargo";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
+            //si los datos estan en primera fila 
 	    if(registros.getRow()==1){
 	        do{
+                    //se colocan todos los datos de los encargos
                     Object datos1 []= new Object[]{i, registros.getString("Id_encargo"), registros.getString("FechaPedido")+" "+registros.getNString("FechaEntrega"), registros.getString("Descripcion"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("Estado"), registros.getString("persona_Id"), registros.getString("id_usuario")};
                     modelo.addRow(datos1);
                     i++;
@@ -75,16 +84,21 @@ public class BaseDatos {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	}   
     }
+    //se imprimen los datos de las reservas en una tabla
     public void imprimirDatosReservas(DefaultTableModel modelo){
+        //se crea la tabla y el metodo donde se guarda los datos
         ResultSet registros = null;
         modelo.setRowCount(0);
         int i=1;
 	try {
+            //se cogen los datos
 	    String consulta = "SELECT * FROM reserva";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
+            //si los datos estan en primera fila
 	    if(registros.getRow()==1){
 	        do{
+                    //se colocan todos los datos de las reservas
                     Object datos1 []= new Object[]{i, registros.getString("Id_encargo"), registros.getString("persona_id")+" "+registros.getNString("FechaReserva"), registros.getString("Zona"), registros.getString("horaReserva"), registros.getString("Anexos"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("id_usuario")};
                     modelo.addRow(datos1);
                     i++;
@@ -96,16 +110,17 @@ public class BaseDatos {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	}   
     }
-    
+    //se guardan los datos de las personas
     public void insertarDatosPersona(int documento, String nombre, String apellido, String tel, String correo){
-        
+        boolean respuesta = false;
         try {
+            //se organizan los datos
             int cedula = documento;
             String nombres = nombre;
             String apellidos = apellido;
             String telefono = tel;
             String email = correo;
-
+            //se guardan los datos 
             String consulta = "INSERT INTO persona (ID_persona, Nombre, Apellido, Telefono, Email) VALUES ('"+cedula+"','"+nombres+"','"+apellidos+"','"+telefono+"','"+email+"')";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
@@ -114,15 +129,13 @@ public class BaseDatos {
         } catch (SQLException ex) {
             System.out.println("--> Error Insert: " + ex.getMessage());
         }
-        if (respuesta){
-            System.out.println("Insertado con exito");
-        }else{
-            System.out.println("No se pudo insertar");
-        } 
+
     }
+    //se guardan los datos de los encargos
     public void insertarDatosEncargo(String fechaI, String fechaF, String anexos, int preciof, int abonado, int saldoP,int documento, int id_Ususario){
-        
+        boolean respuesta = false;
         try { 
+            //se organizan los datos
             String fechaPedido = fechaI;
             String fechaEntrega= fechaF;
             String descripcion = anexos;
@@ -131,7 +144,7 @@ public class BaseDatos {
             int saldoPendiente=saldoP;
             String estado= "en espera";
             int id_Persona=documento;
-
+            //se guardan los datos
             String consulta = "INSERT INTO encargo ( FechaPedido, FechaEntrega, Descripcion, Precio, Abono, SaldoPendiente, Estado, persona_Id, id_usuario) VALUES ('"+fechaPedido+"','"+fechaEntrega+"','"+descripcion+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+estado+"','"+id_Persona+"','"+id_Ususario+"')";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
@@ -140,15 +153,12 @@ public class BaseDatos {
         } catch (SQLException ex) {
             System.out.println("--> Error Insert: " + ex.getMessage());
         }
-        if (respuesta){
-            System.out.println("Insertado con exito");
-        }else{
-            System.out.println("No se pudo insertar");
-        } 
     }
+    //se guardan los datos de la reserva
     public void insertarDatosReservas(int id_persona, String fechaR, int zona, String horaR, String anexos, int preciof, int abonado, int saldoP, int id_usuario){
-        
+        boolean respuesta = false;
         try {
+            //se organizan los datos
             int persona=id_persona;
             String fechaReserva=fechaR;
             int lugar=zona;
@@ -157,7 +167,7 @@ public class BaseDatos {
             int precio = preciof;
             int abono=abonado;
             int saldoPendiente=saldoP;
-
+            //se guardan los datos
             String consulta = "INSERT INTO reserva (persona_id, FechaReserva, Zona, horaReserva, Anexos, Precio, Abono, SaldoPendiente,id_usuario ) VALUES ('"+persona+"','"+fechaReserva+"','"+lugar+"','"+hora+"','"+descrip+"','"+precio+"','"+abono+"','"+saldoPendiente+"','"+id_usuario+"')";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
@@ -166,22 +176,19 @@ public class BaseDatos {
         } catch (SQLException ex) {
             System.out.println("--> Error Insert: " + ex.getMessage());
         }
-        if (respuesta){
-            System.out.println("Insertado con exito");
-        }else{
-            System.out.println("No se pudo insertar");
-        } 
     }
-    
+    //se buscan los datos de la reserva mediante el id de la reserva
     public Reserva buscarDatosReserva(int id_reserva){
         ResultSet registros = null;
         Reserva datos= null;
 	try {
+            //se recogen los datos necesarios para imprimir con el idreserva;
 	    String consulta = "SELECT persona.Nombre, persona.Apellido, reserva.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado, zonas.nombre AS nombreZona FROM (((reserva INNER JOIN persona ON reserva.persona_id=persona.ID_persona)INNER JOIN usuarios ON reserva.id_usuario=usuarios.IdUsuarios) INNER JOIN zonas ON reserva.Zona = zonas.idZonas)WHERE reserva.Id_encargo='"+id_reserva+"' ";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
             if(registros.getRow()==1){
                 datos= new Reserva(registros.getInt("id_reserva"), registros.getString("Nombre"+" "+"Apellido"),registros.getString("FechaReserva"),registros.getString("horaReserva"), registros.getString("nombreZona"),registros.getString("Anexos"),registros.getInt("Precio"),registros.getInt("Abono"),registros.getInt("SaldoPendiente"),registros.getString("nombreEncargado"+" "+"apellidoEncargado"));
+                //hay coincidencias se guardan los valores en la clase reserva
             }
             
 	} catch (SQLException ex) {
@@ -189,16 +196,18 @@ public class BaseDatos {
 	}  
         return datos;  
     }
-    
+     //se buscan los datos del encargo mediante el id del encargo
     public Encargo buscarDatosEncargo(int id_encargo){
          ResultSet registros = null;
         Encargo datos= null;
 	try {
+             //se recogen los datos necesarios para imprimir con el id
 	    String consulta = "SELECT persona.Nombre, persona.Apellido, encargo.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado FROM ((encargo INNER JOIN persona ON encargo.persona_Id=persona.ID_persona)INNER JOIN usuarios ON encargo.id_usuario=usuarios.IdUsuarios )WHERE encargo.Id_encargo='"+id_encargo+"' ";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
             if(registros.getRow()==1){
                 datos= new Encargo(registros.getInt("id_encargo"), registros.getString("FechaPedido"),registros.getString("FechaEntrega"), registros.getString("Descripcion"),registros.getInt("Precio"),registros.getInt("Abono"),registros.getInt("SaldoPendiente"),registros.getString("Estado"),registros.getString("Nombre"+" "+"Apellido"),registros.getString("nombreEncargado"+" "+"apellidoEncargado"));
+                //hay coincidencias se guardan los valores en la clase encargo
             }
             
 	} catch (SQLException ex) {
@@ -206,14 +215,14 @@ public class BaseDatos {
 	}  
         return datos;
     }
-    
+    //se recogen los datos para editar
     public void editarDatosReserva(int id_reserva, String fechaR, String horaR, String descripcion){
-        respuesta = false;
+        boolean respuesta = false;
         try {
             String fecha = fechaR;
             String hora = horaR;
             String anexos= descripcion;
-
+            //mediante el ingreso del id se modificaran los datos de fecha, hora y descripcion
             String consulta = "UPDATE reserva SET  FechaReserva='"+fecha+"', horaReserva='"+hora+"', Anexos='"+anexos+"' WHERE ID_reserva='"+id_reserva+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
@@ -222,18 +231,14 @@ public class BaseDatos {
         } catch (SQLException ex) {
             System.out.println("--> Error Update: " + ex.getMessage());
         }
-        if (respuesta){
-            System.out.println("Editado con exito");
-        }else{
-            System.out.println("No se pudo Editar");
-        }  
     }
+    //se recogen los datos para editar
     public void editarDatosEncargo(int id_encargo, String fechaE, String descripcion){
-        respuesta = false;
+        boolean respuesta = false;
         try {
             String fechaF = fechaE;
             String anexos= descripcion;
-
+            //mediante el ingreso del id se modificaran los datos de fecha y descripcion
             String consulta = "UPDATE encargo SET fechaEntrega='"+fechaE+"', Anexos='"+anexos+"' WHERE Id_encargo='"+id_encargo+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
@@ -242,18 +247,14 @@ public class BaseDatos {
         } catch (SQLException ex) {
             System.out.println("--> Error Update: " + ex.getMessage());
         }
-        if (respuesta){
-            System.out.println("Editado con exito");
-        }else{
-            System.out.println("No se pudo Editar");
-        }  
     }
+    //se editara el estado del encargo
     public void editarEstadoEncargo(int id_encargo, String est){
-        respuesta = false;
+        boolean respuesta = false;
         try {
             String estado = est;
-
-            String consulta = "UPDATE encargo SET  Estado='"+estado+"' WHERE ID_reserva='"+id_encargo+"' ";
+            //mediante el estado que se ingrese se colocara en la coincidencia del id
+            String consulta = "UPDATE encargo SET  Estado='"+estado+"' WHERE Id_encargo='"+id_encargo+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
                 respuesta = true;
@@ -261,17 +262,13 @@ public class BaseDatos {
         } catch (SQLException ex) {
             System.out.println("--> Error Update: " + ex.getMessage());
         }
-        if (respuesta){
-            System.out.println("Editado con exito");
-        }else{
-            System.out.println("No se pudo Editar");
-        }  
     }
+    //se eliminan los datos de la reserva que coincida con el id
     public void eliminarDatosReserva(int idReserva){
-        respuesta = false;
+        boolean respuesta = false;
         try {
             int cedula = idReserva;
-
+            //si el id coincide se eliminara la fia
             String consulta = "DELETE FROM reserva WHERE ID_reserva='"+cedula+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
@@ -280,17 +277,13 @@ public class BaseDatos {
         } catch (SQLException ex) {
             System.out.println("--> Error Delete: " + ex.getMessage());
         }
-        if (respuesta){
-            System.out.println("Eliminado con exito");
-        }else{
-            System.out.println("No se pudo Eliminar");
-        } 
     }
+    //se eliminan los datos del encargo que coincida con el id
     public void eliminarDatosEncargo(int idEncargo){
-        respuesta = false;
+        boolean respuesta = false;
         try {
             int cedula = idEncargo;
-
+            //si el id coincide se eliminara la fia
             String consulta = "DELETE FROM encargo WHERE Id_encargo='"+cedula+"' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta==1) {
@@ -299,16 +292,10 @@ public class BaseDatos {
         } catch (SQLException ex) {
             System.out.println("--> Error Delete: " + ex.getMessage());
         }
-        if (respuesta){
-            System.out.println("Eliminado con exito");
-        }else{
-            System.out.println("No se pudo Eliminar");
-        } 
     }
     public Usuarios login(int usuario, String contraseña){
         ResultSet registro = null;
         Usuarios data=null;
-        respuesta = false;
 	try {
 	    String consulta = "SELECT * FROM usuarios WHERE IdUsuario='"+usuario+"' AND contraseña='"+contraseña+"' ";
 	    registro = manipularDB.executeQuery(consulta);
