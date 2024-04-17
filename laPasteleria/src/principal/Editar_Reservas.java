@@ -2,14 +2,18 @@
 package principal;
 
 import java.awt.Image;
+import java.util.Calendar;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import utils.*;
 
 
 public class Editar_Reservas extends javax.swing.JPanel {
-
+    Usuarios usuario;
+    BaseDatos bd= new BaseDatos();
   
-    public Editar_Reservas() {
+    public Editar_Reservas(Usuarios usu) {
+        usuario=usu;
         initComponents();
         init_Components_mods();
     }
@@ -193,7 +197,11 @@ public class Editar_Reservas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String diaI = Integer.toString(jDateChooser1.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mesI = Integer.toString(jDateChooser1.getCalendar().get(Calendar.MONTH) + 1);
+        String yearI = Integer.toString(jDateChooser1.getCalendar().get(Calendar.YEAR));
+        String fecha=(yearI+"-"+mesI+"-"+diaI);
+        String hora= boxHora.getText();
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

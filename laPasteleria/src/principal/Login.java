@@ -1,25 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package principal;
 
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import utils.*;
 
-/**
- *
- * @author Asus
- */
 public class Login extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Login
-     */
+    Usuarios usuario;
+    BaseDatos baseDatos= new BaseDatos();
     public Login() {
         initComponents();
-    initAlternComponents();
+        initAlternComponents();
     }
     
     public void initAlternComponents() {
@@ -55,6 +47,12 @@ public class Login extends javax.swing.JFrame {
         btnInicio.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("Inicio");
+        btnInicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,7 +103,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(logotipo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cajaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -131,6 +129,18 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        String usuarioEscrito=cajaUsuario.getText();
+        String passwordEscrita=cajaContrasena.getText();
+        usuario=baseDatos.login(Integer.parseInt(usuarioEscrito),passwordEscrita);
+        if(usuario!= null){
+            Pasteleria ventana= new Pasteleria(usuario);
+            cajaUsuario.setText("");
+            cajaContrasena.setText("");
+            dispose();
+        }   
+    }//GEN-LAST:event_btnInicioActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
