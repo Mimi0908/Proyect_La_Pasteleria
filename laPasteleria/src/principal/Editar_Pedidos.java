@@ -8,12 +8,12 @@ package principal;
  *
  * @author Dell
  */
-public class PinPedido extends javax.swing.JPanel {
+public class Editar_Pedidos extends javax.swing.JPanel {
 
     /**
      * Creates new form PinPedido
      */
-    public PinPedido() {
+    public Editar_Pedidos() {
         initComponents();
     }
 
