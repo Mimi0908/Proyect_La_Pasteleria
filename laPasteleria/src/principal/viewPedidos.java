@@ -15,6 +15,12 @@ public class viewPedidos extends javax.swing.JFrame {
      */
     public viewPedidos() {
         initComponents();
+         initAlternComponent();
+    }
+     public void initAlternComponent(){
+        setTitle("pasteles pedidos");
+         setResizable(false);
+        setVisible(true);
     }
 
     /**
@@ -45,6 +51,11 @@ public class viewPedidos extends javax.swing.JFrame {
         btnCrear.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnCrear.setForeground(new java.awt.Color(214, 25, 33));
         btnCrear.setText("Crear");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
 
         btnVer.setBackground(new java.awt.Color(255, 246, 242));
         btnVer.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
@@ -60,12 +71,22 @@ public class viewPedidos extends javax.swing.JFrame {
         btnEditar.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(214, 25, 33));
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnSalida.setBackground(new java.awt.Color(255, 246, 242));
         btnSalida.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnSalida.setForeground(new java.awt.Color(214, 25, 33));
         btnSalida.setText("Salir");
         btnSalida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalidaActionPerformed(evt);
+            }
+        });
 
         cajaIcono.setToolTipText("");
 
@@ -96,7 +117,7 @@ public class viewPedidos extends javax.swing.JFrame {
                 .addComponent(btnEditar)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalida)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pantallaInicial.setBackground(new java.awt.Color(179, 25, 33));
@@ -110,7 +131,7 @@ public class viewPedidos extends javax.swing.JFrame {
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pantallaInicialLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(87, 87, 87))
@@ -147,42 +168,56 @@ public class viewPedidos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        // TODO add your handling code here:
+        pantallaInicial.removeAll();
+     // creara una instancia del nuevo contenedor
+     Ver_PedidosP nuevo=new Ver_PedidosP();
+     // ajustar el tamaño del nuevo contenedor
+     nuevo.setSize(pantallaInicial.getSize());
+     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+     // agregar el nuevo contenedor dentro del contenedor principal
+     pantallaInicial.add(nuevo);
+     // renderizar revalidaded o repade
+     revalidate();
+        repaint();
     }//GEN-LAST:event_btnVerActionPerformed
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+          pantallaInicial.removeAll();
+     // creara una instancia del nuevo contenedor
+     PanelCrearPedidos nuevo=new PanelCrearPedidos();
+     // ajustar el tamaño del nuevo contenedor
+     nuevo.setSize(pantallaInicial.getSize());
+     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+     // agregar el nuevo contenedor dentro del contenedor principal
+     pantallaInicial.add(nuevo);
+     // renderizar revalidaded o repade
+     revalidate();
+        repaint();
+    }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+         pantallaInicial.removeAll();
+     // creara una instancia del nuevo contenedor
+     Editar_Pedidos nuevo=new Editar_Pedidos();
+     // ajustar el tamaño del nuevo contenedor
+     nuevo.setSize(pantallaInicial.getSize());
+     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+     // agregar el nuevo contenedor dentro del contenedor principal
+     pantallaInicial.add(nuevo);
+     // renderizar revalidaded o repade
+     revalidate();
+        repaint();
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalidaActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(viewPedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(viewPedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(viewPedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(viewPedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new viewPedidos().setVisible(true);
-            }
-        });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
