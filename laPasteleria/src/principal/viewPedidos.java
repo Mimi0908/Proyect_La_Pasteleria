@@ -96,7 +96,7 @@ public class viewPedidos extends javax.swing.JFrame {
                 .addComponent(btnEditar)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalida)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pantallaInicial.setBackground(new java.awt.Color(179, 25, 33));
@@ -110,7 +110,7 @@ public class viewPedidos extends javax.swing.JFrame {
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pantallaInicialLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(87, 87, 87))
