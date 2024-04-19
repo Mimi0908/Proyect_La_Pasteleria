@@ -5,13 +5,16 @@ import java.awt.Image;
 import java.util.Calendar;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import utils.BaseDatos;
+
+import utils.*;
 
 
 public class Editar_Reservas extends javax.swing.JPanel {
-
+    Usuarios usuario;
+    BaseDatos bd= new BaseDatos();
   
-    public Editar_Reservas() {
+    public Editar_Reservas(Usuarios usu) {
+        usuario=usu;
         initComponents();
         init_Components_mods();
     }
@@ -211,6 +214,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         int pin_reserva = Integer.parseInt(campoPin.getText());
         String nombre = textNombre.getText();
@@ -242,6 +246,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
         //NECESITO EL CODIGO DEL JCALENDER
         buscar.buscarDatosReserva(pin_reserva);
     }//GEN-LAST:event_btnBuscarActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
