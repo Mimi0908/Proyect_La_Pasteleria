@@ -297,11 +297,11 @@ public class BaseDatos {
         ResultSet registro = null;
         Usuarios data=null;
 	try {
-	    String consulta = "SELECT * FROM usuarios WHERE IdUsuario='"+usuario+"' AND contraseña='"+contraseña+"' ";
+	    String consulta = "SELECT * FROM `usuarios` WHERE `IdUsuario`='"+usuario+"' AND `contraseña`='"+contraseña+"'";
 	    registro = manipularDB.executeQuery(consulta);
             registro.next();
             if(registro.getRow()==1){
-                data= new Usuarios(registro.getInt("IdUsusario"),registro.getString("contraseña"),registro.getString("cargo"),registro.getString("Nombre"),registro.getString("Apellido"),registro.getInt("Telefono"));
+                data= new Usuarios(registro.getInt("IdUsuario"),registro.getString("contraseña"),registro.getString("cargo"),registro.getString("Nombre"),registro.getString("Apellido"),registro.getInt("Telefono"));
             }else{
                 data=null;
             }
