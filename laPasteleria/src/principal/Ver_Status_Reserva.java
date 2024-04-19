@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package principal;
 
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import utils.BaseDatos;
 
 public class Ver_Status_Reserva extends javax.swing.JPanel {
 
@@ -29,7 +26,7 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         btnOnReserve = new javax.swing.JButton();
-        btnCancelReserve = new javax.swing.JButton();
+        btnEliminarReserva = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         textStatusReserve = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -48,11 +45,21 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
         btnOnReserve.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnOnReserve.setForeground(new java.awt.Color(255, 255, 255));
         btnOnReserve.setText("EN RESERVA");
+        btnOnReserve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOnReserveActionPerformed(evt);
+            }
+        });
 
-        btnCancelReserve.setBackground(new java.awt.Color(179, 25, 33));
-        btnCancelReserve.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        btnCancelReserve.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelReserve.setText("CANCELAR RESERVA");
+        btnEliminarReserva.setBackground(new java.awt.Color(179, 25, 33));
+        btnEliminarReserva.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        btnEliminarReserva.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarReserva.setText("ELIMINAR RESERVA");
+        btnEliminarReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarReservaActionPerformed(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -120,7 +127,7 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnOnReserve)
                                 .addGap(66, 66, 66)
-                                .addComponent(btnCancelReserve))
+                                .addComponent(btnEliminarReserva))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -169,7 +176,7 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOnReserve)
-                    .addComponent(btnCancelReserve))
+                    .addComponent(btnEliminarReserva))
                 .addGap(35, 35, 35))
         );
 
@@ -187,9 +194,18 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEliminarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarReservaActionPerformed
+        //SE NECESITA CAMBIAR EL JPANEL A JFRAME
+       
+    }//GEN-LAST:event_btnEliminarReservaActionPerformed
+
+    private void btnOnReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnReserveActionPerformed
+       
+    }//GEN-LAST:event_btnOnReserveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelReserve;
+    private javax.swing.JButton btnEliminarReserva;
     private javax.swing.JButton btnOnReserve;
     private javax.swing.JLabel imgPasteleria;
     private javax.swing.JLabel jLabel3;
