@@ -3,17 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package principal;
-
-/**
- *
- * @author Janier Gonzalez
- */
+import utils.*;
 public class viewReservas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form viewReservas
-     */
-    public viewReservas() {
+    Usuarios usuario;
+    public viewReservas(Usuarios usu) {
+        usuario=usu;
         initComponents();
         initAlternComponent();
     }
@@ -199,14 +194,14 @@ public class viewReservas extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
          pantallaInicial.removeAll();
      // creara una instancia del nuevo contenedor
-     Editar_Reservas nuevo=new Editar_Reservas();
+        Editar_Reservas nuevo=new Editar_Reservas(usuario);
      // ajustar el tamaño del nuevo contenedor
-     nuevo.setSize(pantallaInicial.getSize());
-     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+        nuevo.setSize(pantallaInicial.getSize());
+        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
      // agregar el nuevo contenedor dentro del contenedor principal
-     pantallaInicial.add(nuevo);
+        pantallaInicial.add(nuevo);
      // renderizar revalidaded o repade
-     revalidate();
+        revalidate();
         repaint();
     }//GEN-LAST:event_btnEditarActionPerformed
 

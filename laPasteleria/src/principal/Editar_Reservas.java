@@ -46,7 +46,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
         btnGuardar = new javax.swing.JButton();
         cajaFechaI = new com.toedter.calendar.JDateChooser();
         btnCancelar = new javax.swing.JButton();
-        textAcompañantes = new javax.swing.JLabel();
+        textZona = new javax.swing.JLabel();
         textNombre = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(179, 25, 33));
@@ -110,11 +110,16 @@ public class Editar_Reservas extends javax.swing.JPanel {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("CANCELAR");
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
-        textAcompañantes.setForeground(new java.awt.Color(255, 255, 255));
-        textAcompañantes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textAcompañantes.setText("------------------------");
-        textAcompañantes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        textZona.setForeground(new java.awt.Color(255, 255, 255));
+        textZona.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textZona.setText("------------------------");
+        textZona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         textNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,7 +156,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
                             .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cajaFechaI, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                             .addComponent(boxHora)
-                            .addComponent(textAcompañantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textZona, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(boxNota)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(103, 103, 103)
@@ -190,7 +195,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etqZona)
-                    .addComponent(textAcompañantes, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textZona, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boxNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,13 +222,11 @@ public class Editar_Reservas extends javax.swing.JPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         int pin_reserva = Integer.parseInt(campoPin.getText());
-        String nombre = textNombre.getText();
         String diaI = Integer.toString(cajaFechaI.getCalendar().get(Calendar.DAY_OF_MONTH));
         String mesI = Integer.toString(cajaFechaI.getCalendar().get(Calendar.MONTH) + 1);
         String yearI = Integer.toString(cajaFechaI.getCalendar().get(Calendar.YEAR));
         String fechaI = (yearI + "-" + mesI+ "-" + diaI);
         String hora = boxHora.getText();
-        String zona = textAcompañantes.getText();
         String notas = boxNota.getText();
 
         //Editamos en la base de datos
@@ -234,7 +237,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
         textNombre.setText("");
         /*fecha.setText("");*/
         boxHora.setText("");
-        textAcompañantes.setText("");
+        textZona.setText("");
         boxNota.setText("");
         
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -244,8 +247,24 @@ public class Editar_Reservas extends javax.swing.JPanel {
         int pin_reserva = Integer.parseInt(campoPin.getText());
         BaseDatos buscar = new BaseDatos(); 
         //NECESITO EL CODIGO DEL JCALENDER
-        buscar.buscarDatosReserva(pin_reserva);
+        Reserva datos= buscar.buscarDatosReserva(pin_reserva);
+        textNombre.setText(datos.getNombre());
+        /*fecha.setText("");*/
+        boxHora.setText(datos.getHora());
+        textZona.setText(datos.getNombreZona());
+        boxNota.setText(datos.getDescripcion());
+        campoPin.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        campoPin.setText("");
+        textNombre.setText("");
+        /*fecha.setText("");*/
+        boxHora.setText("");
+        textZona.setText("");
+        boxNota.setText("");
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
 
@@ -266,7 +285,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel textAcompañantes;
     private javax.swing.JLabel textNombre;
+    private javax.swing.JLabel textZona;
     // End of variables declaration//GEN-END:variables
 }

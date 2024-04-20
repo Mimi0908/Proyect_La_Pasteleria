@@ -3,14 +3,19 @@ package principal;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import static java.lang.Integer.parseInt;
+import java.util.Calendar;
 import javax.swing.ImageIcon;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import utils.*;
 
 public class PanelCrearPedidos extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelCrearPedidos
-     */
-    public PanelCrearPedidos() {
+    Usuarios usuario;
+    BaseDatos bd;
+    public PanelCrearPedidos(Usuarios usu) {
+        usuario=usu;
         initComponents();
         initAlternComponents();
     }
@@ -21,7 +26,52 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
         icono= icono.getScaledInstance(285,86, Image.SCALE_SMOOTH);
         logotipo3.setIcon(new ImageIcon(icono));
         
+        cajaprecio.getDocument().addDocumentListener(new DocumentListener() {
+        @Override
+            public void insertUpdate(DocumentEvent e) {
+                actualizarRestante();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                actualizarRestante();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                actualizarRestante();
+            }
+        });
+        cajaAbono.getDocument().addDocumentListener(new DocumentListener() {
+        @Override
+            public void insertUpdate(DocumentEvent e) {
+                actualizarRestante();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                actualizarRestante();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                actualizarRestante();
+            }
+        });
+        
     }
+    private void actualizarRestante() {
+    try {
+        int valorTotal = Integer.parseInt(cajaprecio.getText());
+        int abono = Integer.parseInt(cajaAbono.getText());
+
+        int restante = valorTotal - abono;
+
+        cajaRestante.setText(String.valueOf(restante));
+    } catch (NumberFormatException ex) {
+        cajaRestante.setText("");
+    }
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,14 +88,20 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
         btnCrear = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         cajaDocumento = new javax.swing.JTextField();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        textFechaR = new com.toedter.calendar.JDateChooser();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         cajaApellido = new javax.swing.JTextField();
         cajaTelefono = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cajaCorreo = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        textFechaE = new com.toedter.calendar.JDateChooser();
+        jLabel11 = new javax.swing.JLabel();
+        cajaprecio = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        cajaAbono = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        cajaRestante = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(179, 25, 33));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -103,6 +159,22 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Email:");
 
+        jLabel11.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel11.setText("Precio:");
+
+        jLabel12.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Abono: ");
+
+        jLabel13.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel13.setText("Restante:");
+
+        cajaRestante.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,7 +204,7 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                                    .addComponent(textFechaR, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                                                     .addComponent(cajaDocumento))
                                                 .addGap(35, 35, 35)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -146,21 +218,32 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel4)
-                                            .addComponent(jLabel7))
-                                        .addGap(357, 357, 357)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cajaTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cajaCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cajaprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(44, 44, 44)
+                                        .addComponent(jLabel12)))
+                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cajaTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                    .addComponent(textFechaE, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                    .addComponent(cajaCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                    .addComponent(cajaAbono))))
                         .addContainerGap(32, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(logotipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(219, 219, 219)
+                        .addComponent(logotipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cajaRestante, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(262, 262, 262))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,17 +269,27 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textFechaR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textFechaE, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cajaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel10)
                     .addComponent(cajaCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(cajaprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(cajaAbono, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(cajaRestante, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnCrear)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -212,22 +305,46 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        // TODO add your handling code here:
+        String diaE = Integer.toString(textFechaE.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mesE = Integer.toString(textFechaE.getCalendar().get(Calendar.MONTH) + 1);
+        String yearE = Integer.toString(textFechaE.getCalendar().get(Calendar.YEAR));
+        String fechaE=(yearE+"-"+mesE+"-"+diaE);
+        String diaR = Integer.toString(textFechaR.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mesR = Integer.toString(textFechaR.getCalendar().get(Calendar.MONTH) + 1);
+        String yearR = Integer.toString(textFechaR.getCalendar().get(Calendar.YEAR));
+        String fechaR=(yearR+"-"+mesR+"-"+diaR);
+        
+        String cliente=cajaCliente.getText();
+        String apellido=cajaApellido.getText();
+        int documento=Integer.parseInt(cajaDocumento.getText());
+        String telefono=cajaTelefono.getText();
+        String correo=cajaCorreo.getText();
+        String anexos=cajaDescripcion.getText();
+        int total=Integer.parseInt(cajaprecio.getText());
+        int abono=Integer.parseInt(cajaAbono.getText());
+        int restante=Integer.parseInt(cajaRestante.getText());
+        
+        bd.insertarDatosPersona(documento,cliente,apellido,telefono,correo);
+        bd.insertarDatosEncargo(fechaR, fechaE, anexos, total, abono, restante, documento, usuario.getIdUsusario());
     }//GEN-LAST:event_btnCrearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;
+    private javax.swing.JTextField cajaAbono;
     private javax.swing.JTextField cajaApellido;
     private javax.swing.JTextField cajaCliente;
     private javax.swing.JTextField cajaCorreo;
     private javax.swing.JTextField cajaDescripcion;
     private javax.swing.JTextField cajaDocumento;
+    private javax.swing.JTextField cajaRestante;
     private javax.swing.JTextField cajaTelefono;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JTextField cajaprecio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -237,5 +354,7 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logotipo3;
+    private com.toedter.calendar.JDateChooser textFechaE;
+    private com.toedter.calendar.JDateChooser textFechaR;
     // End of variables declaration//GEN-END:variables
 }

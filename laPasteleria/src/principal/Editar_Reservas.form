@@ -64,7 +64,7 @@
                               <Component id="textNombre" max="32767" attributes="0"/>
                               <Component id="cajaFechaI" pref="172" max="32767" attributes="0"/>
                               <Component id="boxHora" max="32767" attributes="0"/>
-                              <Component id="textAcompañantes" alignment="0" max="32767" attributes="0"/>
+                              <Component id="textZona" alignment="0" max="32767" attributes="0"/>
                               <Component id="boxNota" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -116,7 +116,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="etqZona" min="-2" max="-2" attributes="0"/>
-                      <Component id="textAcompañantes" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="textZona" min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -288,8 +288,11 @@
               <Color id="Default Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="textAcompa&#xf1;antes">
+        <Component class="javax.swing.JLabel" name="textZona">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
