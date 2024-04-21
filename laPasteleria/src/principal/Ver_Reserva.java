@@ -4,11 +4,21 @@ package principal;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import java.sql.*;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+import utils.BaseDatos;
 
 public class Ver_Reserva extends javax.swing.JPanel {
-    public Ver_Reserva() {
+   private BaseDatos database;
+    private DefaultTableModel modelo;
+  
+    public Ver_Reserva(BaseDatos database) {
         initComponents();
         init_Components_mods();
+        
+        this.database = database;
+        cargarDatosReservas();
     }
     
     public void init_Components_mods() {
@@ -94,8 +104,11 @@ public class Ver_Reserva extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+    private void cargarDatosReservas() {
+        database.imprimirDatosReservas(modelo);
+    }
 
-
+      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imgPasteleria;
     private javax.swing.JPanel jPanel1;
