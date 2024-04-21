@@ -26,10 +26,10 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        etqOrden = new javax.swing.JLabel();
+        etqNombre = new javax.swing.JLabel();
+        etqFechaEntrega = new javax.swing.JLabel();
+        etqEstadoPedido = new javax.swing.JLabel();
         btnStart = new javax.swing.JButton();
         btnFinish = new javax.swing.JButton();
         btnMaking = new javax.swing.JButton();
@@ -48,25 +48,25 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ESTADO DEL PEDIDO");
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ORDEN:");
+        etqOrden.setBackground(new java.awt.Color(255, 255, 255));
+        etqOrden.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        etqOrden.setForeground(new java.awt.Color(255, 255, 255));
+        etqOrden.setText("ORDEN:");
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("NOMBRE:");
+        etqNombre.setBackground(new java.awt.Color(255, 255, 255));
+        etqNombre.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        etqNombre.setForeground(new java.awt.Color(255, 255, 255));
+        etqNombre.setText("NOMBRE:");
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("FECHA DE ENTREGA:");
+        etqFechaEntrega.setBackground(new java.awt.Color(255, 255, 255));
+        etqFechaEntrega.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        etqFechaEntrega.setForeground(new java.awt.Color(255, 255, 255));
+        etqFechaEntrega.setText("FECHA DE ENTREGA:");
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("ESTADO DEL PEDIDO:");
+        etqEstadoPedido.setBackground(new java.awt.Color(255, 255, 255));
+        etqEstadoPedido.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        etqEstadoPedido.setForeground(new java.awt.Color(255, 255, 255));
+        etqEstadoPedido.setText("ESTADO DEL PEDIDO:");
 
         btnStart.setBackground(new java.awt.Color(179, 25, 33));
         btnStart.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -114,10 +114,10 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(etqNombre)
+                    .addComponent(etqOrden)
+                    .addComponent(etqFechaEntrega)
+                    .addComponent(etqEstadoPedido))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textName)
@@ -150,13 +150,13 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(etqOrden)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(etqNombre)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
+                        .addComponent(etqFechaEntrega)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5))
+                        .addComponent(etqEstadoPedido))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(textOrder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -185,17 +185,18 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //PASAR DE JPANEL A JFRAME Y VA CONECTADA CON TABLA BONITA
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFinish;
     private javax.swing.JButton btnMaking;
     private javax.swing.JButton btnStart;
+    private javax.swing.JLabel etqEstadoPedido;
+    private javax.swing.JLabel etqFechaEntrega;
+    private javax.swing.JLabel etqNombre;
+    private javax.swing.JLabel etqOrden;
     private javax.swing.JLabel imgPasteleria;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel textDate;

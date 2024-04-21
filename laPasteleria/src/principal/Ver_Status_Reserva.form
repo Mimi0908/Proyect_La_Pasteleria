@@ -50,7 +50,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="btnOnReserve" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="btnCancelReserve" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarReserva" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -113,7 +113,7 @@
                   <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnOnReserve" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCancelReserve" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnEliminarReserva" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
@@ -134,8 +134,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="EN RESERVA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOnReserveActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCancelReserve">
+        <Component class="javax.swing.JButton" name="btnEliminarReserva">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="21" green="19" red="b3" type="rgb"/>
@@ -146,8 +149,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CANCELAR RESERVA"/>
+            <Property name="text" type="java.lang.String" value="ELIMINAR RESERVA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarReservaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>

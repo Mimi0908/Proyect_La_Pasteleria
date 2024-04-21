@@ -4,11 +4,13 @@ package principal;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import utils.*;
 
 
 public class Pasteleria extends javax.swing.JFrame {
-
-    public Pasteleria() {
+    Usuarios usuario;
+    public Pasteleria(Usuarios usu) {
+        usuario= usu;
         initComponents();
         initAlternComponents();
     }
@@ -66,6 +68,11 @@ public class Pasteleria extends javax.swing.JFrame {
         btnSalida.setForeground(new java.awt.Color(255, 255, 255));
         btnSalida.setText("Salir");
         btnSalida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalidaActionPerformed(evt);
+            }
+        });
 
         cajaIcono.setToolTipText("");
 
@@ -137,15 +144,11 @@ public class Pasteleria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
+        Login ventana= new Login();
+        dispose();
+    }//GEN-LAST:event_btnSalidaActionPerformed
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Pasteleria().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEncargos;
