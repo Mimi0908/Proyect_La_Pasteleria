@@ -66,13 +66,8 @@
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="btnInicio" min="-2" pref="162" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cajaUsuario" min="-2" pref="326" max="-2" attributes="0"/>
-                              <Component id="cajaContrasena" min="-2" pref="326" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="cajaUsuario" min="-2" pref="326" max="-2" attributes="0"/>
+                      <Component id="cajaContrasena" min="-2" pref="326" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
               </Group>

@@ -121,12 +121,22 @@ public class Login extends javax.swing.JFrame {
         String usuarioEscrito=cajaUsuario.getText();
         String passwordEscrita=cajaContrasena.getText();
         usuario=baseDatos.login(Integer.parseInt(usuarioEscrito),passwordEscrita);
+        String cargo= usuario.getCargo();
         if(usuario!= null){
-            Pasteleria ventana= new Pasteleria(usuario);
-            cajaUsuario.setText("");
-            cajaContrasena.setText("");
-            dispose();
-        }   
+            if(cargo.equalsIgnoreCase("Recepcionista")){
+                Pasteleria ventana= new Pasteleria(usuario);
+                cajaUsuario.setText("");
+                cajaContrasena.setText("");
+                dispose();
+            }else if(cargo.equalsIgnoreCase("Chef")){
+                PasteleriaChef ventana= new PasteleriaChef();
+                cajaUsuario.setText("");
+                cajaContrasena.setText("");
+                dispose();
+            }
+        }else{
+            System.out.println("Error");
+        } 
     }//GEN-LAST:event_btnInicioActionPerformed
 
     
