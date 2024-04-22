@@ -99,7 +99,7 @@ public class BaseDatos {
 	    if(registros.getRow()==1){
 	        do{
                     //se colocan todos los datos de las reservas
-                    Object datos1 []= new Object[]{i, registros.getString("Id_encargo"), registros.getString("persona_id")+" "+registros.getNString("FechaReserva"), registros.getString("Zona"), registros.getString("horaReserva"), registros.getString("Anexos"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("id_usuario")};
+                    Object datos1 []= new Object[]{i, registros.getString("Id_reserva"), registros.getString("persona_id")+" "+registros.getNString("FechaReserva"), registros.getString("Zona"), registros.getString("horaReserva"), registros.getString("Anexos"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("id_usuario")};
                     modelo.addRow(datos1);
                     i++;
 	        }while(registros.next());
