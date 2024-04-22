@@ -22,9 +22,7 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
     
     public void initAlternComponents() {
         
-        Image icono = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/logotipo.png"));
-        icono= icono.getScaledInstance(285,86, Image.SCALE_SMOOTH);
-        logotipo3.setIcon(new ImageIcon(icono));
+        
         
         cajaprecio.getDocument().addDocumentListener(new DocumentListener() {
         @Override
@@ -105,6 +103,9 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(179, 25, 33));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        logotipo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logotipo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotipo_pequeño.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,8 +250,8 @@ public class PanelCrearPedidos extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(logotipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(logotipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

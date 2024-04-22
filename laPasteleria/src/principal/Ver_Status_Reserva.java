@@ -95,6 +95,7 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
         imgPasteleria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         imgPasteleria.setForeground(new java.awt.Color(255, 255, 255));
         imgPasteleria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgPasteleria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotipo_pequeño.png"))); // NOI18N
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N

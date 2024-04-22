@@ -37,13 +37,12 @@ public class Pasteleria extends javax.swing.JFrame {
         menu = new javax.swing.JPanel();
         btnReservas = new javax.swing.JButton();
         btnEncargos = new javax.swing.JButton();
-        btnFacturas = new javax.swing.JButton();
         btnSalida = new javax.swing.JButton();
         cajaIcono = new javax.swing.JLabel();
         pantallaInicial = new javax.swing.JPanel();
         logotipo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         menu.setBackground(new java.awt.Color(214, 25, 33));
         menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 0), new java.awt.Color(102, 0, 0)));
@@ -52,16 +51,21 @@ public class Pasteleria extends javax.swing.JFrame {
         btnReservas.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnReservas.setForeground(new java.awt.Color(255, 255, 255));
         btnReservas.setText("Reservas");
+        btnReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservasActionPerformed(evt);
+            }
+        });
 
         btnEncargos.setBackground(new java.awt.Color(214, 25, 33));
         btnEncargos.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         btnEncargos.setForeground(new java.awt.Color(255, 255, 255));
         btnEncargos.setText("Encargos");
-
-        btnFacturas.setBackground(new java.awt.Color(214, 25, 33));
-        btnFacturas.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnFacturas.setForeground(new java.awt.Color(255, 255, 255));
-        btnFacturas.setText("Facturas");
+        btnEncargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncargosActionPerformed(evt);
+            }
+        });
 
         btnSalida.setBackground(new java.awt.Color(214, 25, 33));
         btnSalida.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
@@ -85,7 +89,6 @@ public class Pasteleria extends javax.swing.JFrame {
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cajaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEncargos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -95,28 +98,25 @@ public class Pasteleria extends javax.swing.JFrame {
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(cajaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(76, 76, 76)
                 .addComponent(btnReservas)
                 .addGap(18, 18, 18)
                 .addComponent(btnEncargos)
                 .addGap(18, 18, 18)
-                .addComponent(btnFacturas)
-                .addGap(18, 18, 18)
                 .addComponent(btnSalida)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pantallaInicial.setBackground(new java.awt.Color(179, 25, 33));
         pantallaInicial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
+        logotipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout pantallaInicialLayout = new javax.swing.GroupLayout(pantallaInicial);
         pantallaInicial.setLayout(pantallaInicialLayout);
         pantallaInicialLayout.setHorizontalGroup(
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pantallaInicialLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
+            .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
         );
         pantallaInicialLayout.setVerticalGroup(
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +138,7 @@ public class Pasteleria extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pantallaInicial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pantallaInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -149,10 +149,21 @@ public class Pasteleria extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSalidaActionPerformed
 
+    private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
+    //iniciar la ventana ver reservas
+        viewReservas reservas = new viewReservas(usuario);
+        dispose();
+    }//GEN-LAST:event_btnReservasActionPerformed
+
+    private void btnEncargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncargosActionPerformed
+        //iniar el ventana ver Pedidos
+        viewPedidos ventana = new viewPedidos(usuario);
+        dispose();
+    }//GEN-LAST:event_btnEncargosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEncargos;
-    private javax.swing.JButton btnFacturas;
     private javax.swing.JButton btnReservas;
     private javax.swing.JButton btnSalida;
     private javax.swing.JLabel cajaIcono;

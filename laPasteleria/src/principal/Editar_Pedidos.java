@@ -135,7 +135,6 @@ public class Editar_Pedidos extends javax.swing.JPanel {
                 .addComponent(btnBuscar)
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(etqDescripcion)
