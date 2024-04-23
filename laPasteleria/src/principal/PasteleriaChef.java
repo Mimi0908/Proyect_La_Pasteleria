@@ -153,7 +153,7 @@ public class PasteleriaChef extends javax.swing.JFrame {
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
          pantallaInicial.removeAll();
         // creara una instancia del nuevo contenedor
-        TablaBonita nuevo= new TablaBonita();
+        TablaReservas nuevo= new TablaReservas();
         // ajustar el tamaño del nuevo contenedor
         nuevo.setSize(pantallaInicial.getSize());
         nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
@@ -167,7 +167,7 @@ public class PasteleriaChef extends javax.swing.JFrame {
     private void btnEncargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncargosActionPerformed
          pantallaInicial.removeAll();
         // creara una instancia del nuevo contenedor
-        TablaBonita nuevo= new TablaBonita();
+        TablaPedidos nuevo= new TablaPedidos();
         // ajustar el tamaño del nuevo contenedor
         nuevo.setSize(pantallaInicial.getSize());
         nuevo.setPreferredSize(pantallaInicial.getPreferredSize());

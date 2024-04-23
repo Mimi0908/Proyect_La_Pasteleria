@@ -158,14 +158,14 @@ public class viewPedidos extends javax.swing.JFrame {
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         pantallaInicial.removeAll();
      // creara una instancia del nuevo contenedor
-        Ver_PedidosP nuevo=new Ver_PedidosP();
-        // ajustar el tamaño del nuevo contenedor
-        nuevo.setSize(pantallaInicial.getSize());
-        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
-        // agregar el nuevo contenedor dentro del contenedor principal
-        pantallaInicial.add(nuevo);
-        // renderizar revalidaded o repade
-        revalidate();
+     Ver_Pedidos nuevo=new Ver_Pedidos();
+     // ajustar el tamaño del nuevo contenedor
+     nuevo.setSize(pantallaInicial.getSize());
+     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+     // agregar el nuevo contenedor dentro del contenedor principal
+     pantallaInicial.add(nuevo);
+     // renderizar revalidaded o repade
+     revalidate();
         repaint();
     }//GEN-LAST:event_btnVerActionPerformed
 

@@ -21,37 +21,28 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="imgPasteleria" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jLabel1" alignment="0" pref="526" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="681" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="imgPasteleria" min="-2" pref="120" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="129" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="351" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="289" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="imgPasteleria">
+    <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenes/logotipo_peque&#xf1;o.png"/>
@@ -68,16 +59,12 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="9" rowCount="4">
-                <Column editable="false" title="PIN" type="java.lang.Object"/>
-                <Column editable="false" title="Nombre Usuario" type="java.lang.Object"/>
-                <Column editable="false" title="Fecha Pedido" type="java.lang.Object"/>
-                <Column editable="false" title="Fecha Entrega" type="java.lang.Object"/>
-                <Column editable="false" title="Descripcion " type="java.lang.Object"/>
-                <Column editable="false" title="Abono" type="java.lang.Object"/>
-                <Column editable="false" title="Saldo Pendiente" type="java.lang.Object"/>
-                <Column editable="true" title="Estado Pedido" type="java.lang.Object"/>
-                <Column editable="false" title="Encargado" type="java.lang.Object"/>
+              <Table columnCount="5" rowCount="0">
+                <Column editable="true" title="PIN" type="java.lang.Object"/>
+                <Column editable="true" title="NOMBRE" type="java.lang.Object"/>
+                <Column editable="true" title="ORDEN" type="java.lang.Object"/>
+                <Column editable="true" title="FECHA ENTREGA" type="java.lang.Object"/>
+                <Column editable="true" title="ESTADO DEL PEDIDO" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
