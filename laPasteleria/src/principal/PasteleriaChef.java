@@ -4,34 +4,45 @@
  */
 package principal;
 
-import utils.Usuarios;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
- * @author Janier Gonzalez
+ * @author Asus
  */
-public class viewPedidos extends javax.swing.JFrame {
+public class PasteleriaChef extends javax.swing.JFrame {
 
-    Usuarios usuario;
-    public viewPedidos(Usuarios usu) {
-        usuario=usu;
+    /**
+     * Creates new form PasteleriaChef
+     */
+    public PasteleriaChef() {
         initComponents();
-         initAlternComponent();
+        initAlternComponents();
     }
-     public void initAlternComponent(){
-        setTitle("pasteles pedidos");
-         setResizable(false);
+
+     public void initAlternComponents() {
+        setTitle("MENU");
+        setLocationRelativeTo(null);
+        setResizable(false);
         setVisible(true);
+        
+        Image icono = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/logo-principal.png"));
+        icono= icono.getScaledInstance(557, 289, Image.SCALE_SMOOTH);
+        logotipo.setIcon(new ImageIcon(icono));
+        
+        Image icono2 = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icono.png"));
+        icono2= icono2.getScaledInstance(162, 180, Image.SCALE_SMOOTH);
+        cajaIcono.setIcon(new ImageIcon(icono2));
     }
-     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         menu = new javax.swing.JPanel();
-        btnCrear = new javax.swing.JButton();
-        btnVer = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        btnReservas = new javax.swing.JButton();
+        btnEncargos = new javax.swing.JButton();
         btnSalida = new javax.swing.JButton();
         cajaIcono = new javax.swing.JLabel();
         pantallaInicial = new javax.swing.JPanel();
@@ -42,39 +53,29 @@ public class viewPedidos extends javax.swing.JFrame {
         menu.setBackground(new java.awt.Color(214, 25, 33));
         menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 0), new java.awt.Color(102, 0, 0)));
 
-        btnCrear.setBackground(new java.awt.Color(255, 246, 242));
-        btnCrear.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnCrear.setForeground(new java.awt.Color(214, 25, 33));
-        btnCrear.setText("Crear");
-        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+        btnReservas.setBackground(new java.awt.Color(214, 25, 33));
+        btnReservas.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        btnReservas.setForeground(new java.awt.Color(255, 255, 255));
+        btnReservas.setText("Reservas");
+        btnReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearActionPerformed(evt);
+                btnReservasActionPerformed(evt);
             }
         });
 
-        btnVer.setBackground(new java.awt.Color(255, 246, 242));
-        btnVer.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnVer.setForeground(new java.awt.Color(214, 25, 33));
-        btnVer.setText("Ver");
-        btnVer.addActionListener(new java.awt.event.ActionListener() {
+        btnEncargos.setBackground(new java.awt.Color(214, 25, 33));
+        btnEncargos.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        btnEncargos.setForeground(new java.awt.Color(255, 255, 255));
+        btnEncargos.setText("Encargos");
+        btnEncargos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerActionPerformed(evt);
+                btnEncargosActionPerformed(evt);
             }
         });
 
-        btnEditar.setBackground(new java.awt.Color(255, 246, 242));
-        btnEditar.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnEditar.setForeground(new java.awt.Color(214, 25, 33));
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-
-        btnSalida.setBackground(new java.awt.Color(255, 246, 242));
+        btnSalida.setBackground(new java.awt.Color(214, 25, 33));
         btnSalida.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        btnSalida.setForeground(new java.awt.Color(214, 25, 33));
+        btnSalida.setForeground(new java.awt.Color(255, 255, 255));
         btnSalida.setText("Salir");
         btnSalida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSalida.addActionListener(new java.awt.event.ActionListener() {
@@ -94,9 +95,8 @@ public class viewPedidos extends javax.swing.JFrame {
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cajaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEncargos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
@@ -104,37 +104,32 @@ public class viewPedidos extends javax.swing.JFrame {
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(cajaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCrear)
+                .addGap(76, 76, 76)
+                .addComponent(btnReservas)
                 .addGap(18, 18, 18)
-                .addComponent(btnVer)
-                .addGap(18, 18, 18)
-                .addComponent(btnEditar)
+                .addComponent(btnEncargos)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalida)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pantallaInicial.setBackground(new java.awt.Color(179, 25, 33));
         pantallaInicial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         logotipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logotipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo-principal_pequeño.png"))); // NOI18N
 
         javax.swing.GroupLayout pantallaInicialLayout = new javax.swing.GroupLayout(pantallaInicial);
         pantallaInicial.setLayout(pantallaInicialLayout);
         pantallaInicialLayout.setHorizontalGroup(
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pantallaInicialLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE))
+            .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
         );
         pantallaInicialLayout.setVerticalGroup(
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pantallaInicialLayout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(logotipo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,38 +150,10 @@ public class viewPedidos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        pantallaInicial.removeAll();
-     // creara una instancia del nuevo contenedor
-        Ver_PedidosP nuevo=new Ver_PedidosP();
-        // ajustar el tamaño del nuevo contenedor
-        nuevo.setSize(pantallaInicial.getSize());
-        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
-        // agregar el nuevo contenedor dentro del contenedor principal
-        pantallaInicial.add(nuevo);
-        // renderizar revalidaded o repade
-        revalidate();
-        repaint();
-    }//GEN-LAST:event_btnVerActionPerformed
-
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-          pantallaInicial.removeAll();
-     // creara una instancia del nuevo contenedor
-        PanelCrearPedidos nuevo=new PanelCrearPedidos(usuario);
-        // ajustar el tamaño del nuevo contenedor
-        nuevo.setSize(pantallaInicial.getSize());
-        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
-        // agregar el nuevo contenedor dentro del contenedor principal
-        pantallaInicial.add(nuevo);
-        // renderizar revalidaded o repade
-        revalidate();
-        repaint();
-    }//GEN-LAST:event_btnCrearActionPerformed
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+    private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
          pantallaInicial.removeAll();
-     // creara una instancia del nuevo contenedor
-        Editar_Pedidos nuevo=new Editar_Pedidos(usuario);
+        // creara una instancia del nuevo contenedor
+        TablaBonita nuevo= new TablaBonita();
         // ajustar el tamaño del nuevo contenedor
         nuevo.setSize(pantallaInicial.getSize());
         nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
@@ -195,19 +162,66 @@ public class viewPedidos extends javax.swing.JFrame {
         // renderizar revalidaded o repade
         revalidate();
         repaint();
-    }//GEN-LAST:event_btnEditarActionPerformed
+    }//GEN-LAST:event_btnReservasActionPerformed
+
+    private void btnEncargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncargosActionPerformed
+         pantallaInicial.removeAll();
+        // creara una instancia del nuevo contenedor
+        TablaBonita nuevo= new TablaBonita();
+        // ajustar el tamaño del nuevo contenedor
+        nuevo.setSize(pantallaInicial.getSize());
+        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+        // agregar el nuevo contenedor dentro del contenedor principal
+        pantallaInicial.add(nuevo);
+        // renderizar revalidaded o repade
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_btnEncargosActionPerformed
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
-        //ahora si puede funcionar, ya que le he devuelto el "Usuario"
-        Pasteleria menu = new Pasteleria(usuario);
+        Login ventana= new Login();
         dispose();
     }//GEN-LAST:event_btnSalidaActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PasteleriaChef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PasteleriaChef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PasteleriaChef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PasteleriaChef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PasteleriaChef().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEncargos;
+    private javax.swing.JButton btnReservas;
     private javax.swing.JButton btnSalida;
-    private javax.swing.JButton btnVer;
     private javax.swing.JLabel cajaIcono;
     private javax.swing.JLabel logotipo;
     private javax.swing.JPanel menu;

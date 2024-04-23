@@ -15,9 +15,7 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
 
     public void init_Components_mods() {
         //Agregar LogoTipo
-        ImageIcon imageLogo = new ImageIcon("imagenes/logotipo.png");
-        Icon icono = new ImageIcon(imageLogo.getImage().getScaledInstance(imgPasteleria.getWidth(), imgPasteleria.getHeight(), Image.SCALE_DEFAULT));
-        imgPasteleria.setIcon(icono);
+       
     }
     
     @SuppressWarnings("unchecked")
@@ -84,6 +82,7 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
         btnMaking.setText("HACIENDO");
 
         imgPasteleria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgPasteleria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotipo_pequeño.png"))); // NOI18N
 
         textOrder.setBackground(new java.awt.Color(255, 255, 255));
         textOrder.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -136,8 +135,8 @@ public class Ver_Status_Pedido extends javax.swing.JPanel {
                         .addComponent(btnFinish)
                         .addGap(45, 45, 45))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(141, 141, 141))))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(129, 129, 129))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

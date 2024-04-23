@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-04-2024 a las 22:36:40
+-- Tiempo de generación: 22-04-2024 a las 17:40:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `encargo` (
   `Id_encargo` int(10) NOT NULL,
-  `FechaPedido` date NOT NULL,
-  `FechaEntrega` date NOT NULL,
+  `FechaPedido` varchar(40) NOT NULL,
+  `FechaEntrega` varchar(40) NOT NULL,
   `Descripcion` text NOT NULL,
   `Precio` int(11) NOT NULL,
   `Abono` int(11) NOT NULL,
@@ -39,6 +39,13 @@ CREATE TABLE `encargo` (
   `persona_Id` int(10) NOT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `encargo`
+--
+
+INSERT INTO `encargo` (`Id_encargo`, `FechaPedido`, `FechaEntrega`, `Descripcion`, `Precio`, `Abono`, `SaldoPendiente`, `Estado`, `persona_Id`, `id_usuario`) VALUES
+(1, '2024-04-22', '2024-05-05', 'Pastel de chocolate y vainilla, con decoración de flores de azúcar', 80000, 20000, 60000, 'En espera', 1034569123, 3);
 
 -- --------------------------------------------------------
 
@@ -54,6 +61,14 @@ CREATE TABLE `persona` (
   `Email` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `persona`
+--
+
+INSERT INTO `persona` (`ID_persona`, `Nombre`, `Apellido`, `Telefono`, `Email`) VALUES
+(25170237, 'Coni', 'Morales', '35041628', 'coni@gmail.com'),
+(1034569123, 'Emily', 'Montes', '3205047641', 'emily@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -63,7 +78,7 @@ CREATE TABLE `persona` (
 CREATE TABLE `reserva` (
   `ID_reserva` int(10) NOT NULL,
   `persona_id` int(10) NOT NULL,
-  `FechaReserva` date NOT NULL,
+  `FechaReserva` varchar(40) NOT NULL,
   `Zona` int(11) NOT NULL,
   `horaReserva` varchar(10) NOT NULL,
   `Anexos` text NOT NULL,
@@ -72,6 +87,13 @@ CREATE TABLE `reserva` (
   `SaldoPendiente` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reserva`
+--
+
+INSERT INTO `reserva` (`ID_reserva`, `persona_id`, `FechaReserva`, `Zona`, `horaReserva`, `Anexos`, `Precio`, `Abono`, `SaldoPendiente`, `id_usuario`) VALUES
+(1, 25170237, '2024-04-29', 1, '14:00', 'Reserva del salón para evento de cumpleaños, con 40 personas, decoraciones y comidas reservadas', 120000, 20000, 100000, 1);
 
 -- --------------------------------------------------------
 
@@ -88,6 +110,15 @@ CREATE TABLE `usuarios` (
   `Telefono` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`IdUsuario`, `contraseña`, `cargo`, `Nombre`, `Apellido`, `Telefono`) VALUES
+(1, 'Fabio#1234', 'Recepcionista', 'Fabio', 'Arango', 321654987),
+(2, 'Valentina#4321', 'Chef', 'Valentina', 'Gonzalez', 315468921),
+(3, 'Jordy#0987', 'Recepcionista', 'Jordy', 'Arias', 314469552);
+
 -- --------------------------------------------------------
 
 --
@@ -100,6 +131,15 @@ CREATE TABLE `zonas` (
   `descripcion` text NOT NULL,
   `estado` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `zonas`
+--
+
+INSERT INTO `zonas` (`idZonas`, `nombre`, `descripcion`, `estado`) VALUES
+(1, 'Salón Principal', 'salón con capacidad de 20 mesas, funcional para eventos especiales', 'Activo'),
+(2, 'salón con piscina', 'salón con capacidad de 10 mesas, acceso al puente y vista a la piscina', 'Activo'),
+(3, 'Segundo piso', 'segundo piso con capacidad de 30 mesas, y funcional para reuniones', 'Activo');
 
 --
 -- Índices para tablas volcadas
@@ -148,31 +188,31 @@ ALTER TABLE `zonas`
 -- AUTO_INCREMENT de la tabla `encargo`
 --
 ALTER TABLE `encargo`
-  MODIFY `Id_encargo` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_encargo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `ID_persona` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_persona` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1034569124;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `ID_reserva` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_reserva` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `zonas`
 --
 ALTER TABLE `zonas`
-  MODIFY `idZonas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idZonas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
