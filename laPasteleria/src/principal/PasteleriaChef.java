@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
+
 /**
  *
  * @author Asus
@@ -151,7 +152,9 @@ public class PasteleriaChef extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-         pantallaInicial.removeAll();
+        //crear instancia de la base de datos
+        
+        pantallaInicial.removeAll();
         // creara una instancia del nuevo contenedor
         TablaReservas nuevo= new TablaReservas();
         // ajustar el tamaño del nuevo contenedor
@@ -166,7 +169,8 @@ public class PasteleriaChef extends javax.swing.JFrame {
 
     private void btnEncargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncargosActionPerformed
          pantallaInicial.removeAll();
-        // creara una instancia del nuevo contenedor
+         
+        //Envio el contenedor debido a que Tablapedidos y view Pedidos es un JPanel
         TablaPedidos nuevo= new TablaPedidos();
         // ajustar el tamaño del nuevo contenedor
         nuevo.setSize(pantallaInicial.getSize());

@@ -16,26 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="526" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="430" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -50,10 +36,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabel1" alignment="0" pref="526" max="32767" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel1" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="1" pref="672" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -61,9 +49,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" pref="129" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="289" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="118" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="324" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -88,11 +76,18 @@
             <Component class="javax.swing.JTable" name="jTable1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="0">
+                  <Table columnCount="11" rowCount="0">
                     <Column editable="false" title="PIN" type="java.lang.Object"/>
                     <Column editable="false" title="NOMBRE" type="java.lang.Object"/>
-                    <Column editable="false" title="FECHA RESERVA" type="java.lang.Object"/>
-                    <Column editable="true" title="INFORMACI&#xd3;N RESERVAS" type="java.lang.Object"/>
+                    <Column editable="false" title="FECHA" type="java.lang.Object"/>
+                    <Column editable="false" title="ZONA" type="java.lang.Object"/>
+                    <Column editable="false" title="HORA" type="java.lang.Object"/>
+                    <Column editable="false" title="ANEXOS" type="java.lang.Object"/>
+                    <Column editable="false" title="PRECIO" type="java.lang.Object"/>
+                    <Column editable="false" title="ABONO" type="java.lang.Object"/>
+                    <Column editable="false" title="PENDIENTE" type="java.lang.Object"/>
+                    <Column editable="false" title="ENCARGADO" type="java.lang.Object"/>
+                    <Column editable="true" title="ESTADO" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>

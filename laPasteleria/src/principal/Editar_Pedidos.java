@@ -44,6 +44,7 @@ public class Editar_Pedidos extends javax.swing.JPanel {
         textNombre = new javax.swing.JLabel();
         textFechaPedido = new javax.swing.JLabel();
         textEstado = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(179, 25, 33));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -120,6 +121,9 @@ public class Editar_Pedidos extends javax.swing.JPanel {
         textEstado.setText("---------------------");
         textEstado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotipo_pequeño.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,10 +139,11 @@ public class Editar_Pedidos extends javax.swing.JPanel {
                 .addComponent(btnBuscar)
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(etqDescripcion)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -164,7 +169,8 @@ public class Editar_Pedidos extends javax.swing.JPanel {
                                 .addComponent(etqNota)
                                 .addGap(98, 98, 98)
                                 .addComponent(textEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(99, 99, 99))))
+                        .addGap(99, 99, 99)))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,6 +272,7 @@ public class Editar_Pedidos extends javax.swing.JPanel {
     private javax.swing.JLabel etqNombre;
     private javax.swing.JLabel etqNota;
     private javax.swing.JLabel imgPasteleria;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel textEstado;

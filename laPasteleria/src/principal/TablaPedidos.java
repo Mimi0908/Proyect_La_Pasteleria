@@ -1,26 +1,61 @@
 
 package principal;
 
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.table.DefaultTableModel;
+import utils.BaseDatos;
+import utils.ButtonRenderer;
+
+ 
 
 public class TablaPedidos extends javax.swing.JPanel {
+    //btn global para evitar que todos los botones tengan el mismo evento
+    JButton btn = new JButton();
+    //instancia de la tabla
+    private DefaultTableModel modelo;  
+    //instancia Datos
+    private BaseDatos database = new BaseDatos();
 
     public TablaPedidos() {
         initComponents();
         initAlternComponents();
     }
     public void initAlternComponents() {
-        JButton btn = new JButton();
+        //tomamos el contenedor del JFrame pasteleria chef, para organizarlo en el archivo BaseDatos
+        
+        initColumnBotons();
+        
         btn.setBackground(Color.RED);
         Toolkit toolkit = btn.getToolkit();
         Image icono_editar = toolkit.createImage(ClassLoader.getSystemResource("imagenes/icono.png"));
         icono_editar = icono_editar.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         btn.setIcon(new ImageIcon(icono_editar));
         
+        //extraer la tabla
+        modelo = (DefaultTableModel) jTable1.getModel();
+        
+        //imprimir la info que hay en la base de datos
+        database.imprimirDatosEncargoChef(modelo, btn);
+    }
+    
+    //función para hacer el código mas legible
+    public void initColumnBotons(){
+        // Agregar boton y renderizarlo
+        jTable1.getColumnModel().getColumn(4).setCellEditor(new utils.ButtonEditor(new JCheckBox()));
+        jTable1.getColumnModel().getColumn(4).setCellRenderer(new ButtonRenderer());
+        
+        //modificar tamaño de la celda "estado"
+        jTable1.setRowHeight(30);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(1);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(1);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(1);
+        jTable1.getColumnModel().getColumn(4).setPreferredWidth(10);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -40,7 +75,7 @@ public class TablaPedidos extends javax.swing.JPanel {
 
             },
             new String [] {
-                "PIN", "NOMBRE", "ORDEN", "FECHA ENTREGA", "ESTADO DEL PEDIDO"
+                "PIN", "NOMBRE", "ORDEN", "FECHA ENTREGA", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {

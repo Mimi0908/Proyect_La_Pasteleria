@@ -1,31 +1,35 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package principal;
 
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import utils.BaseDatos;
+/**
+ *
+ * @author Usuario
+ */
+public class Status_Reserva extends javax.swing.JFrame {
 
-public class Ver_Status_Reserva extends javax.swing.JPanel {
-
-    public Ver_Status_Reserva() {
+    /**
+     * Creates new form Status_Reserva
+     */
+    public Status_Reserva() {
         initComponents();
-        init_Components_mods();
+        initAlternComponents();
     }
 
-    public void init_Components_mods() {
-        //Agregar LogoTipo
-        ImageIcon imageLogo = new ImageIcon("imagenes/logotipo.png");
-        Icon icono = new ImageIcon(imageLogo.getImage().getScaledInstance(imgPasteleria.getWidth(), imgPasteleria.getHeight(), Image.SCALE_DEFAULT));
-        imgPasteleria.setIcon(icono);
+    public void initAlternComponents(){
+        setTitle("Estado Rserva");
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setVisible(true);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnOnReserve = new javax.swing.JButton();
         btnEliminarReserva = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         textStatusReserve = new javax.swing.JLabel();
@@ -38,18 +42,12 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
         textReserve = new javax.swing.JLabel();
         titleReserve = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        btnOnReserve1 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(179, 25, 33));
-
-        btnOnReserve.setBackground(new java.awt.Color(179, 25, 33));
-        btnOnReserve.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        btnOnReserve.setForeground(new java.awt.Color(255, 255, 255));
-        btnOnReserve.setText("EN RESERVA");
-        btnOnReserve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOnReserveActionPerformed(evt);
-            }
-        });
 
         btnEliminarReserva.setBackground(new java.awt.Color(179, 25, 33));
         btnEliminarReserva.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -113,6 +111,26 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
         titleReserve.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleReserve.setText("ESTADO DE LA RESERVA");
 
+        btnOnReserve1.setBackground(new java.awt.Color(179, 25, 33));
+        btnOnReserve1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        btnOnReserve1.setForeground(new java.awt.Color(255, 255, 255));
+        btnOnReserve1.setText("EN RESERVA");
+        btnOnReserve1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOnReserve1ActionPerformed(evt);
+            }
+        });
+
+        btnVolver.setBackground(new java.awt.Color(179, 25, 33));
+        btnVolver.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setText("<- Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,29 +141,32 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titleReserve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 46, Short.MAX_VALUE)
+                        .addGap(0, 41, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnOnReserve)
-                                .addGap(66, 66, 66)
-                                .addComponent(btnEliminarReserva))
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(94, 94, 94))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textReserve)
-                                    .addComponent(textName)
-                                    .addComponent(textDate)
-                                    .addComponent(textStatusReserve))))
+                                .addComponent(btnVolver)
+                                .addGap(50, 50, 50)
+                                .addComponent(btnOnReserve1)
+                                .addGap(36, 36, 36)
+                                .addComponent(btnEliminarReserva)))
                         .addGap(39, 39, 39))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textReserve)
+                    .addComponent(textName)
+                    .addComponent(textDate)
+                    .addComponent(textStatusReserve))
+                .addGap(92, 92, 92))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +177,7 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
                 .addComponent(titleReserve)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
                     .addComponent(textReserve))
@@ -174,15 +195,16 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
                         .addComponent(textDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(textStatusReserve)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOnReserve)
-                    .addComponent(btnEliminarReserva))
+                    .addComponent(btnEliminarReserva)
+                    .addComponent(btnOnReserve1)
+                    .addComponent(btnVolver))
                 .addGap(35, 35, 35))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -193,21 +215,62 @@ public class Ver_Status_Reserva extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarReservaActionPerformed
         //SE NECESITA CAMBIAR EL JPANEL A JFRAME
-       
+
     }//GEN-LAST:event_btnEliminarReservaActionPerformed
 
-    private void btnOnReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnReserveActionPerformed
-       
-    }//GEN-LAST:event_btnOnReserveActionPerformed
+    private void btnOnReserve1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnReserve1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOnReserve1ActionPerformed
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Status_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Status_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Status_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Status_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Status_Reserva().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminarReserva;
-    private javax.swing.JButton btnOnReserve;
+    private javax.swing.JButton btnOnReserve1;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel imgPasteleria;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

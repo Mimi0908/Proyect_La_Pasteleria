@@ -9,27 +9,54 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.table.DefaultTableModel;
+import utils.BaseDatos;
+import utils.ButtonRenderer;
 
 /**
  *
  * @author Asus
  */
 public class TablaReservas extends javax.swing.JPanel {
-
-    /**
-     * Creates new form TablaReservas
-     */
+    //btn global para evitar que todos los botones tengan el mismo evento
+    JButton btn = new JButton();
+    //instancia de la tabla
+    private DefaultTableModel modelo;  
+    //instancia Datos
+    private BaseDatos database = new BaseDatos();
+    
+    
     public TablaReservas() {
         initComponents();
         initAlternComponents();
     }
     public void initAlternComponents() {
-        JButton btn = new JButton();
+        
+        initColumnBotons();
+        
+        
         btn.setBackground(Color.RED);
         Toolkit toolkit = btn.getToolkit();
         Image icono_editar = toolkit.createImage(ClassLoader.getSystemResource("imagenes/icono.png"));
         icono_editar = icono_editar.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         btn.setIcon(new ImageIcon(icono_editar));
+        
+        //extraer la tabla
+        modelo = (DefaultTableModel) jTable1.getModel();
+        
+        //imprimir la info que hay en la base de datos
+        database.imprimirDatosReservasChef(modelo, btn);
+    }
+    
+    public void initColumnBotons(){
+        // Agregar boton y renderizarlo
+        jTable1.getColumnModel().getColumn(10).setCellEditor(new utils.ButtonEditor(new JCheckBox()));
+        jTable1.getColumnModel().getColumn(10).setCellRenderer(new ButtonRenderer());
+        
+        //modificar tamaño de la celda "estado"
+        jTable1.setRowHeight(30);
+        jTable1.getColumnModel().getColumn(10).setPreferredWidth(10);
     }
 
     
@@ -52,11 +79,11 @@ public class TablaReservas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "PIN", "NOMBRE", "FECHA RESERVA", "INFORMACIÓN RESERVAS"
+                "PIN", "NOMBRE", "FECHA", "ZONA", "HORA", "ANEXOS", "PRECIO", "ABONO", "PENDIENTE", "ENCARGADO", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -69,18 +96,19 @@ public class TablaReservas extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -88,21 +116,11 @@ public class TablaReservas extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
