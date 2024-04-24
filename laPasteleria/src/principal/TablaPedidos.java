@@ -1,12 +1,27 @@
 
 package principal;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 public class TablaPedidos extends javax.swing.JPanel {
 
     public TablaPedidos() {
         initComponents();
+        initAlternComponents();
     }
-
+    public void initAlternComponents() {
+        JButton btn = new JButton();
+        btn.setBackground(Color.RED);
+        Toolkit toolkit = btn.getToolkit();
+        Image icono_editar = toolkit.createImage(ClassLoader.getSystemResource("imagenes/icono.png"));
+        icono_editar = icono_editar.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        btn.setIcon(new ImageIcon(icono_editar));
+        
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,7 +42,15 @@ public class TablaPedidos extends javax.swing.JPanel {
             new String [] {
                 "PIN", "NOMBRE", "ORDEN", "FECHA ENTREGA", "ESTADO DEL PEDIDO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -1,8 +1,10 @@
 
 package utils;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
-import javax.swing.JTextField;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
 public class BaseDatos {
@@ -63,19 +65,17 @@ public class BaseDatos {
         //se crea la tabla y el metodo donde se guarda los datos
         ResultSet registros = null;
         modelo.setRowCount(0);
-        int i=1;
 	try {
             //se cogen los datos
-	    String consulta = "SELECT * FROM encargo";
+	    String consulta = "SELECT persona.Nombre, persona.Apellido, encargo.*,usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado FROM ((encargo INNER JOIN persona ON encargo.persona_Id=persona.ID_persona)INNER JOIN usuarios ON encargo.id_usuario=usuarios.IdUsuario )";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
             //si los datos estan en primera fila 
 	    if(registros.getRow()==1){
 	        do{
                     //se colocan todos los datos de los encargos
-                    Object datos1 []= new Object[]{i, registros.getString("Id_encargo"), registros.getString("FechaPedido")+" "+registros.getNString("FechaEntrega"), registros.getString("Descripcion"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("Estado"), registros.getString("persona_Id"), registros.getString("id_usuario")};
+                    Object datos1 []= new Object[]{registros.getString("Id_encargo"),registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("FechaPedido"),registros.getString("FechaEntrega"), registros.getString("Descripcion"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("Estado"), registros.getString("nombreEncargado")+" "+registros.getString("apellidoEncargado")};
                     modelo.addRow(datos1);
-                    i++;
 	        }while(registros.next());
 	    }else{
 	        System.out.println("No se encuentran clientes registrados.");
@@ -89,19 +89,17 @@ public class BaseDatos {
         //se crea la tabla y el metodo donde se guarda los datos
         ResultSet registros = null;
         modelo.setRowCount(0);
-        int i=1;
 	try {
             //se cogen los datos
-	    String consulta = "SELECT * FROM reserva";
+	    String consulta = "SELECT persona.Nombre, persona.Apellido, reserva.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado, zonas.nombre AS nombreZona FROM (((reserva INNER JOIN persona ON reserva.persona_id=persona.ID_persona)INNER JOIN usuarios ON reserva.id_usuario=usuarios.IdUsuario) INNER JOIN zonas ON reserva.Zona = zonas.idZonas)";
 	    registros = manipularDB.executeQuery(consulta);
 	    registros.next();
             //si los datos estan en primera fila
 	    if(registros.getRow()==1){
 	        do{
                     //se colocan todos los datos de las reservas
-                    Object datos1 []= new Object[]{i, registros.getString("Id_reserva"), registros.getString("persona_id")+" "+registros.getNString("FechaReserva"), registros.getString("Zona"), registros.getString("horaReserva"), registros.getString("Anexos"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("id_usuario")};
+                    Object datos1 []= new Object[]{ registros.getString("Id_reserva"), registros.getString("Nombre") + " " + registros.getString("Apellido"),registros.getString("FechaReserva"), registros.getString("Zona"), registros.getString("horaReserva"), registros.getString("Anexos"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("nombreEncargado")+" "+registros.getString("apellidoEncargado")};
                     modelo.addRow(datos1);
-                    i++;
 	        }while(registros.next());
 	    }else{
 	        System.out.println("No se encuentran clientes registrados.");
@@ -110,6 +108,62 @@ public class BaseDatos {
 	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
 	}   
     }
+    
+    public void imprimirDatosEncargoChef(DefaultTableModel modelo,JButton btn){
+        //se crea la tabla y el metodo donde se guarda los datos
+        ResultSet registros = null;
+        modelo.setRowCount(0);
+        
+	try {
+            //se cogen los datos
+	    String consulta = "SELECT persona.Nombre, persona.Apellido, encargo.* FROM ((encargo INNER JOIN persona ON encargo.persona_Id=persona.ID_persona)";
+	    registros = manipularDB.executeQuery(consulta);
+	    registros.next();
+            //si los datos estan en primera fila 
+	    if(registros.getRow()==1){
+	        do{
+                    //se colocan todos los datos de los encargos
+                    Object datos1 []= new Object[]{registros.getString("Id_encargo"),registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("Descripcion"),registros.getString("FechaEntrega"), btn};
+                    modelo.addRow(datos1);
+                    btn.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e){
+                    
+                    }});
+	        }while(registros.next());
+	    }else{
+	        System.out.println("No se encuentran clientes registrados.");
+	    }
+            
+	} catch (SQLException ex) {
+	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
+	}   
+    }
+    //se imprimen los datos de las reservas en una tabla
+    public void imprimirDatosReservasChef(DefaultTableModel modelo){
+        //se crea la tabla y el metodo donde se guarda los datos
+        ResultSet registros = null;
+        modelo.setRowCount(0);
+	try {
+            //se cogen los datos
+	    String consulta = "SELECT persona.Nombre, persona.Apellido, reserva.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado, zonas.nombre AS nombreZona FROM (((reserva INNER JOIN persona ON reserva.persona_id=persona.ID_persona)INNER JOIN usuarios ON reserva.id_usuario=usuarios.IdUsuario) INNER JOIN zonas ON reserva.Zona = zonas.idZonas)";
+	    registros = manipularDB.executeQuery(consulta);
+	    registros.next();
+            //si los datos estan en primera fila
+	    if(registros.getRow()==1){
+	        do{
+                    //se colocan todos los datos de las reservas
+                    Object datos1 []= new Object[]{ registros.getString("Id_reserva"), registros.getString("Nombre") + " " + registros.getString("Apellido"),registros.getString("FechaReserva"), registros.getString("Zona"), registros.getString("horaReserva"), registros.getString("Anexos"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("nombreEncargado")+" "+registros.getString("apellidoEncargado")};
+                    modelo.addRow(datos1);
+	        }while(registros.next());
+	    }else{
+	        System.out.println("No se encuentran clientes registrados.");
+	    }
+	} catch (SQLException ex) {
+	    System.out.println("Error al buscar el cliente: "+ex.getMessage());
+	}   
+    }
+    
     //se guardan los datos de las personas
     public void insertarDatosPersona(int documento, String nombre, String apellido, String tel, String correo){
         boolean respuesta = false;

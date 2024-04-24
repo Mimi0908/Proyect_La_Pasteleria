@@ -39,17 +39,17 @@ public class Ver_Pedidos extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "PIN", "Nombre Usuario", "Fecha Pedido", "Fecha Entrega", "Descripcion ", "Abono", "Saldo Pendiente", "Estado Pedido", "Encargado"
+                "PIN", "Nombre Usuario", "Fecha Pedido", "Fecha Entrega", "Descripcion ", "Total", "Abono", "Saldo Pendiente", "Estado Pedido", "Encargado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
