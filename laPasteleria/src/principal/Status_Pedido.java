@@ -3,17 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package principal;
+import utils.*;
 
-/**
- *
- * @author Usuario
- */
 public class Status_Pedido extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Status_Pedido
-     */
-    public Status_Pedido() {
+    BaseDatos bd= new BaseDatos();
+    int pedido;
+    public Status_Pedido(int idPedido) {
+        pedido=idPedido;
         initComponents();
         initAlternComponents();
     }
@@ -23,6 +19,7 @@ public class Status_Pedido extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        ponerDatos();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -79,16 +76,31 @@ public class Status_Pedido extends javax.swing.JFrame {
         btnStart.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnStart.setForeground(new java.awt.Color(255, 255, 255));
         btnStart.setText("SIN EMPEZAR");
+        btnStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartActionPerformed(evt);
+            }
+        });
 
         btnFinish.setBackground(new java.awt.Color(179, 25, 33));
         btnFinish.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnFinish.setForeground(new java.awt.Color(255, 255, 255));
         btnFinish.setText("TERMINADO");
+        btnFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinishActionPerformed(evt);
+            }
+        });
 
         btnMaking.setBackground(new java.awt.Color(179, 25, 33));
         btnMaking.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnMaking.setForeground(new java.awt.Color(255, 255, 255));
         btnMaking.setText("HACIENDO");
+        btnMaking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMakingActionPerformed(evt);
+            }
+        });
 
         imgPasteleria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgPasteleria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotipo_pequeño.png"))); // NOI18N
@@ -96,7 +108,12 @@ public class Status_Pedido extends javax.swing.JFrame {
         textOrder.setBackground(new java.awt.Color(255, 255, 255));
         textOrder.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         textOrder.setForeground(new java.awt.Color(255, 255, 255));
+        textOrder.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         textOrder.setText("---------------------------");
+        textOrder.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        textOrder.setAutoscrolls(true);
+        textOrder.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        textOrder.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         textName.setBackground(new java.awt.Color(255, 255, 255));
         textName.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -143,49 +160,56 @@ public class Status_Pedido extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etqNombre)
-                            .addComponent(etqOrden)
-                            .addComponent(etqFechaEntrega)
-                            .addComponent(etqEstadoPedido))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textName)
-                            .addComponent(textOrder)
-                            .addComponent(textDate)
-                            .addComponent(textStatusOrder))
-                        .addGap(129, 129, 129))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(155, 155, 155))))
+                        .addGap(169, 169, 169))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(etqOrden)
+                                    .addGap(145, 145, 145))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(etqEstadoPedido)
+                                    .addGap(18, 18, 18)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(etqFechaEntrega)
+                                    .addComponent(etqNombre))
+                                .addGap(21, 21, 21)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textDate)
+                            .addComponent(textName)
+                            .addComponent(textStatusOrder)
+                            .addComponent(textOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(imgPasteleria, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(etqOrden)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(etqNombre)
-                        .addGap(18, 18, 18)
-                        .addComponent(etqFechaEntrega)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(etqEstadoPedido))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(textOrder)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textName)
-                        .addGap(18, 18, 18)
-                        .addComponent(textDate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textStatusOrder)))
-                .addGap(40, 40, 40)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(textOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etqNombre)
+                    .addComponent(textName))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etqFechaEntrega)
+                    .addComponent(textDate))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etqEstadoPedido)
+                    .addComponent(textStatusOrder))
+                .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnStart)
                     .addComponent(btnMaking)
@@ -212,6 +236,29 @@ public class Status_Pedido extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void btnMakingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakingActionPerformed
+        bd.editarEstadoEncargo(pedido, "Haciendo");
+        ponerDatos();
+    }//GEN-LAST:event_btnMakingActionPerformed
+
+    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
+        bd.editarEstadoEncargo(pedido, "Terminado");
+        ponerDatos();
+    }//GEN-LAST:event_btnFinishActionPerformed
+
+    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+        bd.editarEstadoEncargo(pedido, "En espera");
+        ponerDatos();
+    }//GEN-LAST:event_btnStartActionPerformed
+    
+    private void ponerDatos(){
+        Encargo datos = bd.buscarDatosEncargo(pedido);
+        textOrder.setText(datos.getAnexos());
+        textName.setText(datos.getNombre());
+        textDate.setText(datos.getFechaEntrega());
+        textStatusOrder.setText(datos.getEstado());
+    }
+    
     /**
      * @param args the command line arguments
      */

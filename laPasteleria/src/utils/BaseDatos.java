@@ -127,6 +127,7 @@ public class BaseDatos {
             //si los datos estan en primera fila 
             if (registros.getRow() == 1) {
                 do {
+                    int idEncargo = registros.getInt("Id_encargo");
                     //se colocan todos los datos de los encargos
                     Object datos1[] = new Object[]{registros.getString("Id_encargo"), registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("Descripcion"), registros.getString("FechaEntrega"), btn};
                     modelo.addRow(datos1);
@@ -135,7 +136,7 @@ public class BaseDatos {
                         public void actionPerformed(ActionEvent e) {
                             
                             // creara una instancia del nuevo contenedor
-                            Status_Pedido pedido = new Status_Pedido();
+                            Status_Pedido pedido = new Status_Pedido(idEncargo);
                         }
                     });
                 } while (registros.next());
@@ -259,11 +260,11 @@ public class BaseDatos {
         Reserva datos = null;
         try {
             //se recogen los datos necesarios para imprimir con el idreserva;
-            String consulta = "SELECT persona.Nombre, persona.Apellido, reserva.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado, zonas.nombre AS nombreZona FROM (((reserva INNER JOIN persona ON reserva.persona_id=persona.ID_persona)INNER JOIN usuarios ON reserva.id_usuario=usuarios.IdUsuarios) INNER JOIN zonas ON reserva.Zona = zonas.idZonas)WHERE reserva.Id_encargo='" + id_reserva + "' ";
+            String consulta = "SELECT persona.Nombre, persona.Apellido, reserva.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado, zonas.nombre AS nombreZona FROM (((reserva INNER JOIN persona ON reserva.persona_id=persona.ID_persona)INNER JOIN usuarios ON reserva.id_usuario=usuarios.IdUsuario) INNER JOIN zonas ON reserva.Zona = zonas.idZonas)WHERE reserva.ID_reserva='" + id_reserva + "' ";
             registros = manipularDB.executeQuery(consulta);
             registros.next();
             if (registros.getRow() == 1) {
-                datos = new Reserva(registros.getInt("id_reserva"), registros.getString("Nombre" + " " + "Apellido"), registros.getString("FechaReserva"), registros.getString("horaReserva"), registros.getString("nombreZona"), registros.getString("Anexos"), registros.getInt("Precio"), registros.getInt("Abono"), registros.getInt("SaldoPendiente"), registros.getString("nombreEncargado" + " " + "apellidoEncargado"));
+                datos = new Reserva(registros.getInt("id_reserva"), registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("FechaReserva"), registros.getString("horaReserva"), registros.getString("nombreZona"), registros.getString("Anexos"), registros.getInt("Precio"), registros.getInt("Abono"), registros.getInt("SaldoPendiente"), registros.getString("nombreEncargado") + " " + registros.getString("apellidoEncargado"));
                 //hay coincidencias se guardan los valores en la clase reserva
             }
 
@@ -279,11 +280,11 @@ public class BaseDatos {
         Encargo datos = null;
         try {
             //se recogen los datos necesarios para imprimir con el id
-            String consulta = "SELECT persona.Nombre, persona.Apellido, encargo.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado FROM ((encargo INNER JOIN persona ON encargo.persona_Id=persona.ID_persona)INNER JOIN usuarios ON encargo.id_usuario=usuarios.IdUsuarios )WHERE encargo.Id_encargo='" + id_encargo + "' ";
+            String consulta = "SELECT persona.Nombre, persona.Apellido, encargo.*, usuarios.Nombre AS nombreEncargado, usuarios.Apellido AS apellidoEncargado FROM ((encargo INNER JOIN persona ON encargo.persona_Id=persona.ID_persona)INNER JOIN usuarios ON encargo.id_usuario=usuarios.IdUsuario )WHERE encargo.Id_encargo='" + id_encargo + "' ";
             registros = manipularDB.executeQuery(consulta);
             registros.next();
             if (registros.getRow() == 1) {
-                datos = new Encargo(registros.getInt("id_encargo"), registros.getString("FechaPedido"), registros.getString("FechaEntrega"), registros.getString("Descripcion"), registros.getInt("Precio"), registros.getInt("Abono"), registros.getInt("SaldoPendiente"), registros.getString("Estado"), registros.getString("Nombre" + " " + "Apellido"), registros.getString("nombreEncargado" + " " + "apellidoEncargado"));
+                datos = new Encargo(registros.getInt("id_encargo"), registros.getString("FechaPedido"), registros.getString("FechaEntrega"), registros.getString("Descripcion"), registros.getInt("Precio"), registros.getInt("Abono"), registros.getInt("SaldoPendiente"), registros.getString("Estado"), registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("nombreEncargado") + " " + registros.getString("apellidoEncargado"));
                 //hay coincidencias se guardan los valores en la clase encargo
             }
 
