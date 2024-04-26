@@ -40,6 +40,7 @@ public class TablaPedidos extends javax.swing.JPanel {
         //extraer la tabla
         modelo = (DefaultTableModel) jTable1.getModel();
         
+ 
         //imprimir la info que hay en la base de datos
         database.imprimirDatosEncargoChef(modelo, btn);
     }
@@ -54,6 +55,7 @@ public class TablaPedidos extends javax.swing.JPanel {
         jTable1.setRowHeight(30);
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(1);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(1);
+        
         jTable1.getColumnModel().getColumn(3).setPreferredWidth(1);
         jTable1.getColumnModel().getColumn(4).setPreferredWidth(10);
     }

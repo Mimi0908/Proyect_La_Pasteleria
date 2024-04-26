@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package principal;
 
 import java.awt.Color;
@@ -14,10 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import utils.BaseDatos;
 import utils.ButtonRenderer;
 
-/**
- *
- * @author Asus
- */
+
 public class TablaReservas extends javax.swing.JPanel {
     //btn global para evitar que todos los botones tengan el mismo evento
     JButton btn = new JButton();
@@ -45,6 +38,8 @@ public class TablaReservas extends javax.swing.JPanel {
         //extraer la tabla
         modelo = (DefaultTableModel) jTable1.getModel();
         
+           
+        
         //imprimir la info que hay en la base de datos
         database.imprimirDatosReservasChef(modelo, btn);
     }
@@ -56,7 +51,17 @@ public class TablaReservas extends javax.swing.JPanel {
         
         //modificar tamaño de la celda "estado"
         jTable1.setRowHeight(30);
-        jTable1.getColumnModel().getColumn(10).setPreferredWidth(10);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(220);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(150);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(150);
+        jTable1.getColumnModel().getColumn(4).setPreferredWidth(120);
+        jTable1.getColumnModel().getColumn(5).setPreferredWidth(160);
+        jTable1.getColumnModel().getColumn(6).setPreferredWidth(160);
+        jTable1.getColumnModel().getColumn(7).setPreferredWidth(160);
+        jTable1.getColumnModel().getColumn(8).setPreferredWidth(200);
+        jTable1.getColumnModel().getColumn(9).setPreferredWidth(250);
+        jTable1.getColumnModel().getColumn(10).setPreferredWidth(170);
     }
 
     
