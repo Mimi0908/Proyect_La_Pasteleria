@@ -43,7 +43,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
         btnGuardar = new javax.swing.JButton();
         cajaFechaI = new com.toedter.calendar.JDateChooser();
         btnCancelar = new javax.swing.JButton();
-        textAcompañantes = new javax.swing.JLabel();
+        textZona = new javax.swing.JLabel();
         textNombre = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(179, 25, 33));
@@ -115,10 +115,10 @@ public class Editar_Reservas extends javax.swing.JPanel {
             }
         });
 
-        textAcompañantes.setForeground(new java.awt.Color(255, 255, 255));
-        textAcompañantes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textAcompañantes.setText("------------------------");
-        textAcompañantes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        textZona.setForeground(new java.awt.Color(255, 255, 255));
+        textZona.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textZona.setText("------------------------");
+        textZona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         textNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,57 +132,54 @@ public class Editar_Reservas extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(imgPasteleria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(campoPin, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoPin, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscar)
-                                .addGap(96, 96, 96))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(etqFechaReserva)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(etqZona)
-                                                .addComponent(etqHora))
-                                            .addComponent(etqNombre)
-                                            .addComponent(etqNotas))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cajaFechaI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(boxHora)
-                                            .addComponent(textAcompañantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(boxNota, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnCancelar)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(btnGuardar)
-                                        .addGap(50, 50, 50)))
-                                .addGap(165, 165, 165))))))
+                                    .addComponent(etqFechaReserva)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(etqZona)
+                                        .addComponent(etqHora))
+                                    .addComponent(etqNombre)
+                                    .addComponent(etqNotas))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cajaFechaI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(boxHora)
+                                    .addComponent(boxNota, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textZona, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnCancelar)
+                                .addGap(49, 49, 49)
+                                .addComponent(btnGuardar)
+                                .addGap(50, 50, 50)))
+                        .addGap(69, 69, 69)))
+                .addGap(115, 115, 115))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(imgPasteleria, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBuscar)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
                         .addComponent(campoPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                .addGap(24, 24, 24)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etqNombre)
                     .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -197,7 +194,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etqZona)
-                    .addComponent(textAcompañantes, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textZona, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boxNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,7 +203,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnCancelar))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -224,13 +221,11 @@ public class Editar_Reservas extends javax.swing.JPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         int pin_reserva = Integer.parseInt(campoPin.getText());
-        String nombre = textNombre.getText();
         String diaI = Integer.toString(cajaFechaI.getCalendar().get(Calendar.DAY_OF_MONTH));
         String mesI = Integer.toString(cajaFechaI.getCalendar().get(Calendar.MONTH) + 1);
         String yearI = Integer.toString(cajaFechaI.getCalendar().get(Calendar.YEAR));
         String fechaI = (yearI + "-" + mesI+ "-" + diaI);
         String hora = boxHora.getText();
-        String zona = textAcompañantes.getText();
         String notas = boxNota.getText();
 
         //Editamos en la base de datos
@@ -241,7 +236,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
         textNombre.setText("");
         //fecha.setText("");
         boxHora.setText("");
-        textAcompañantes.setText("");
+        textZona.setText("");
         boxNota.setText("");
         
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -251,18 +246,22 @@ public class Editar_Reservas extends javax.swing.JPanel {
         int pin_reserva = Integer.parseInt(campoPin.getText());
         BaseDatos buscar = new BaseDatos(); 
         //NECESITO EL CODIGO DEL JCALENDER
-        buscar.buscarDatosReserva(pin_reserva);
+        Reserva datos= buscar.buscarDatosReserva(pin_reserva);
+        textNombre.setText(datos.getNombre());
+        /*fecha.setText("");*/
+        boxHora.setText(datos.getHora());
+        textZona.setText(datos.getNombreZona());
+        boxNota.setText(datos.getDescripcion());
+        campoPin.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // Boton de cancelar
-        
-        //Solo reinicio todos los valores
+        // TODO add your handling code here:
         campoPin.setText("");
-        textNombre.setText("---------------------");
-        // Falta como reiniciar el valor de la caja "fecha"
+        textNombre.setText("");
+        /*fecha.setText("");*/
         boxHora.setText("");
-        textAcompañantes.setText("---------------------");
+        textZona.setText("");
         boxNota.setText("");
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -285,7 +284,7 @@ public class Editar_Reservas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel textAcompañantes;
     private javax.swing.JLabel textNombre;
+    private javax.swing.JLabel textZona;
     // End of variables declaration//GEN-END:variables
 }

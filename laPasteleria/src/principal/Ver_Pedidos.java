@@ -6,8 +6,9 @@ package principal;
 
 import java.sql.*;
 import java.sql.ResultSet;
+import javax.swing.JCheckBox;
 import javax.swing.table.DefaultTableModel;
-import utils.BaseDatos;
+import utils.*;
 
 
 
@@ -18,11 +19,36 @@ public class Ver_Pedidos extends javax.swing.JPanel {
    
     public Ver_Pedidos() {
         initComponents();
+
+        initAlternComponents();
+
         this.modelo = (DefaultTableModel) jTable1.getModel();
         
         cargarDatosEncargo();
     }
+    
+    public void initAlternComponents() {
+  
+        
+         modelo = (DefaultTableModel) jTable1.getModel();
+            
 
+        jTable1.setRowHeight(40);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(230);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(230);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(230);
+        jTable1.getColumnModel().getColumn(4).setPreferredWidth(260);
+        jTable1.getColumnModel().getColumn(5).setPreferredWidth(160);
+        jTable1.getColumnModel().getColumn(6).setPreferredWidth(160);
+        jTable1.getColumnModel().getColumn(7).setPreferredWidth(260);
+        jTable1.getColumnModel().getColumn(8).setPreferredWidth(210);
+        jTable1.getColumnModel().getColumn(9).setPreferredWidth(240);
+
+           
+
+    }
+    
    private void cargarDatosEncargo() {
         database.imprimirDatosEncargo(modelo);
     }
@@ -39,17 +65,17 @@ public class Ver_Pedidos extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "PIN", "Nombre Usuario", "Fecha Pedido", "Fecha Entrega", "Descripcion ", "Abono", "Saldo Pendiente", "Estado Pedido", "Encargado"
+                "PIN", "Nombre Usuario", "Fecha Pedido", "Fecha Entrega", "Descripcion ", "Total", "Abono", "Saldo Pendiente", "Estado Pedido", "Encargado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -75,8 +101,10 @@ public class Ver_Pedidos extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logotipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+
+                .addGap(23, 23, 23)
+                .addComponent(logotipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))

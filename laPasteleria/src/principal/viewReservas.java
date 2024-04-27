@@ -1,16 +1,11 @@
 
 package principal;
-
-import utils.Usuarios;
-
+import utils.*;
 public class viewReservas extends javax.swing.JFrame {
 
-    //creación de otra instancia usuario para volver al archivo "Pasteleria"
     Usuarios usuario;
-
     public viewReservas(Usuarios usu) {
-        //Encapsulamos la info de usuario de Pasteleria
-        this.usuario = usu;
+        usuario=usu;
         initComponents();
         initAlternComponent();
     }
@@ -183,19 +178,15 @@ public class viewReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        pantallaInicial.removeAll();
-
-        // creara una instancia del nuevo contenedor
-        // la otra ventana necesita el usuario, así que se lo envio desde aquí
-        Editar_Reservas editarReserva = new Editar_Reservas(usuario);
-
-        // ajustar el tamaño del nuevo contenedor
-        editarReserva.setSize(pantallaInicial.getSize());
-        editarReserva.setPreferredSize(pantallaInicial.getPreferredSize());
-
-        // agregar el nuevo contenedor dentro del contenedor principal
-        pantallaInicial.add(editarReserva);
-        // renderizar revalidaded o repade
+         pantallaInicial.removeAll();
+     // creara una instancia del nuevo contenedor
+        Editar_Reservas nuevo=new Editar_Reservas(usuario);
+     // ajustar el tamaño del nuevo contenedor
+        nuevo.setSize(pantallaInicial.getSize());
+        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+     // agregar el nuevo contenedor dentro del contenedor principal
+        pantallaInicial.add(nuevo);
+     // renderizar revalidaded o repade
         revalidate();
         repaint();
     }//GEN-LAST:event_btnEditarActionPerformed

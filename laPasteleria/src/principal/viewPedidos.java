@@ -12,12 +12,9 @@ import utils.Usuarios;
  */
 public class viewPedidos extends javax.swing.JFrame {
 
-    /*Creare un "usuario" y lo recibire por parametro; esto se hace para volver a la parte de 
-    "Pasteleria" donde esta el menú principal*/
     Usuarios usuario;
-    
-    public viewPedidos(Usuarios usuario) {
-        this.usuario = usuario;
+    public viewPedidos(Usuarios usu) {
+        usuario=usu;
         initComponents();
          initAlternComponent();
     }
@@ -175,28 +172,28 @@ public class viewPedidos extends javax.swing.JFrame {
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
           pantallaInicial.removeAll();
      // creara una instancia del nuevo contenedor
-     PanelCrearPedidos nuevo=new PanelCrearPedidos();
-     // ajustar el tamaño del nuevo contenedor
-     nuevo.setSize(pantallaInicial.getSize());
-     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
-     // agregar el nuevo contenedor dentro del contenedor principal
-     pantallaInicial.add(nuevo);
-     // renderizar revalidaded o repade
-     revalidate();
+        PanelCrearPedidos nuevo=new PanelCrearPedidos(usuario);
+        // ajustar el tamaño del nuevo contenedor
+        nuevo.setSize(pantallaInicial.getSize());
+        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+        // agregar el nuevo contenedor dentro del contenedor principal
+        pantallaInicial.add(nuevo);
+        // renderizar revalidaded o repade
+        revalidate();
         repaint();
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
          pantallaInicial.removeAll();
      // creara una instancia del nuevo contenedor
-     Editar_Pedidos nuevo=new Editar_Pedidos();
-     // ajustar el tamaño del nuevo contenedor
-     nuevo.setSize(pantallaInicial.getSize());
-     nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
-     // agregar el nuevo contenedor dentro del contenedor principal
-     pantallaInicial.add(nuevo);
-     // renderizar revalidaded o repade
-     revalidate();
+        Editar_Pedidos nuevo=new Editar_Pedidos(usuario);
+        // ajustar el tamaño del nuevo contenedor
+        nuevo.setSize(pantallaInicial.getSize());
+        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+        // agregar el nuevo contenedor dentro del contenedor principal
+        pantallaInicial.add(nuevo);
+        // renderizar revalidaded o repade
+        revalidate();
         repaint();
     }//GEN-LAST:event_btnEditarActionPerformed
 
