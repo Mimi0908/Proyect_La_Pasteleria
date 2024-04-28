@@ -319,7 +319,8 @@ public class BaseDatos {
             String fechaF = fechaE;
             String anexos = descripcion;
             //mediante el ingreso del id se modificaran los datos de fecha y descripcion
-            String consulta = "UPDATE encargo SET fechaEntrega='" + fechaE + "', Anexos='" + anexos + "' WHERE Id_encargo='" + id_encargo + "' ";
+            //cambio: Anexo por Descripcion
+            String consulta = "UPDATE encargo SET fechaEntrega='" + fechaE + "', Descripcion='" + anexos + "' WHERE Id_encargo='" + id_encargo + "' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta == 1) {
                 respuesta = true;
