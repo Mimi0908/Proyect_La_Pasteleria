@@ -162,7 +162,7 @@ public class BaseDatos {
             //si los datos estan en primera fila
             if (registros.getRow() == 1) {
                 do {
-                    //se colocan todos los datos de las reservas
+                    int idReserva = registros.getInt("Id_reserva");
                     Object datos1[] = new Object[]{registros.getString("Id_reserva"), registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("FechaReserva"), registros.getString("Zona"), registros.getString("horaReserva"), registros.getString("Anexos"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("nombreEncargado") + " " + registros.getString("apellidoEncargado"), btn};
                     modelo.addRow(datos1);
                     
@@ -171,7 +171,7 @@ public class BaseDatos {
                         public void actionPerformed(ActionEvent e) {
                             
                             // creara una instancia del nuevo contenedor
-                            Status_Reserva reserva = new Status_Reserva();
+                            Status_Reserva reserva = new Status_Reserva(idReserva);
                         }
                     });
                     
@@ -319,7 +319,8 @@ public class BaseDatos {
             String fechaF = fechaE;
             String anexos = descripcion;
             //mediante el ingreso del id se modificaran los datos de fecha y descripcion
-            String consulta = "UPDATE encargo SET fechaEntrega='" + fechaE + "', Anexos='" + anexos + "' WHERE Id_encargo='" + id_encargo + "' ";
+            //cambio: Anexo por Descripcion
+            String consulta = "UPDATE encargo SET fechaEntrega='" + fechaE + "', Descripcion='" + anexos + "' WHERE Id_encargo='" + id_encargo + "' ";
             int resp_consulta = manipularDB.executeUpdate(consulta);
             if (resp_consulta == 1) {
                 respuesta = true;
