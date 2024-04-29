@@ -1,21 +1,29 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package principal;
 
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import utils.*;
 
 
-public class Pasteleria extends javax.swing.JFrame {
-    Usuarios usuario;
-    public Pasteleria(Usuarios usu) {
-        usuario= usu;
+/**
+ *
+ * @author Asus
+ */
+public class PasteleriaChef extends javax.swing.JFrame {
+
+    /**
+     * Creates new form PasteleriaChef
+     */
+    public PasteleriaChef() {
         initComponents();
         initAlternComponents();
     }
-    
-    public void initAlternComponents() {
+
+     public void initAlternComponents() {
         setTitle("MENU");
         setLocationRelativeTo(null);
         setResizable(false);
@@ -29,7 +37,6 @@ public class Pasteleria extends javax.swing.JFrame {
         icono2= icono2.getScaledInstance(162, 180, Image.SCALE_SMOOTH);
         cajaIcono.setIcon(new ImageIcon(icono2));
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,7 +49,7 @@ public class Pasteleria extends javax.swing.JFrame {
         pantallaInicial = new javax.swing.JPanel();
         logotipo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menu.setBackground(new java.awt.Color(214, 25, 33));
         menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 0), new java.awt.Color(102, 0, 0)));
@@ -104,7 +111,7 @@ public class Pasteleria extends javax.swing.JFrame {
                 .addComponent(btnEncargos)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalida)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pantallaInicial.setBackground(new java.awt.Color(179, 25, 33));
@@ -116,7 +123,7 @@ public class Pasteleria extends javax.swing.JFrame {
         pantallaInicial.setLayout(pantallaInicialLayout);
         pantallaInicialLayout.setHorizontalGroup(
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
+            .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
         );
         pantallaInicialLayout.setVerticalGroup(
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,23 +151,76 @@ public class Pasteleria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
+        //crear instancia de la base de datos
+        
+        pantallaInicial.removeAll();
+        // creara una instancia del nuevo contenedor
+        TablaReservas nuevo= new TablaReservas();
+        // ajustar el tamaño del nuevo contenedor
+        nuevo.setSize(pantallaInicial.getSize());
+        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+        // agregar el nuevo contenedor dentro del contenedor principal
+        pantallaInicial.add(nuevo);
+        // renderizar revalidaded o repade
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_btnReservasActionPerformed
+
+    private void btnEncargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncargosActionPerformed
+         pantallaInicial.removeAll();
+         
+        //Envio el contenedor debido a que Tablapedidos y view Pedidos es un JPanel
+        TablaPedidos nuevo= new TablaPedidos();
+        // ajustar el tamaño del nuevo contenedor
+        nuevo.setSize(pantallaInicial.getSize());
+        nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
+        // agregar el nuevo contenedor dentro del contenedor principal
+        pantallaInicial.add(nuevo);
+        // renderizar revalidaded o repade
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_btnEncargosActionPerformed
+
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
         Login ventana= new Login();
         dispose();
     }//GEN-LAST:event_btnSalidaActionPerformed
 
-    private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-    //iniciar la ventana ver reservas
-        viewReservas reservas = new viewReservas(usuario);
-        dispose();
-    }//GEN-LAST:event_btnReservasActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PasteleriaChef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PasteleriaChef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PasteleriaChef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PasteleriaChef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    private void btnEncargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncargosActionPerformed
-        //iniar el ventana ver Pedidos
-        viewPedidos ventana = new viewPedidos(usuario);
-        dispose();
-    }//GEN-LAST:event_btnEncargosActionPerformed
-
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PasteleriaChef().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEncargos;
