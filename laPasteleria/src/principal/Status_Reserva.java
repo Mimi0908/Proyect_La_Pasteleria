@@ -4,21 +4,24 @@
  */
 package principal;
 
+import utils.BaseDatos;
+
 /**
  *
  * @author Usuario
  */
 public class Status_Reserva extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Status_Reserva
-     */
-    public Status_Reserva() {
+    BaseDatos bd= new BaseDatos();
+    int reserva;
+    public Status_Reserva(int idReserva) {
+        reserva=idReserva;
         initComponents();
         initAlternComponents();
     }
 
     public void initAlternComponents(){
+        
         setTitle("Estado Rserva");
         setLocationRelativeTo(null);
         setResizable(false);
@@ -42,7 +45,6 @@ public class Status_Reserva extends javax.swing.JFrame {
         textReserve = new javax.swing.JLabel();
         titleReserve = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        btnOnReserve1 = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -111,16 +113,6 @@ public class Status_Reserva extends javax.swing.JFrame {
         titleReserve.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleReserve.setText("ESTADO DE LA RESERVA");
 
-        btnOnReserve1.setBackground(new java.awt.Color(179, 25, 33));
-        btnOnReserve1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        btnOnReserve1.setForeground(new java.awt.Color(255, 255, 255));
-        btnOnReserve1.setText("EN RESERVA");
-        btnOnReserve1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOnReserve1ActionPerformed(evt);
-            }
-        });
-
         btnVolver.setBackground(new java.awt.Color(179, 25, 33));
         btnVolver.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,14 +137,12 @@ public class Status_Reserva extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(94, 94, 94))
+                                .addGap(133, 133, 133))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnVolver)
-                                .addGap(50, 50, 50)
-                                .addComponent(btnOnReserve1)
-                                .addGap(36, 36, 36)
-                                .addComponent(btnEliminarReserva)))
-                        .addGap(39, 39, 39))))
+                                .addGap(68, 68, 68)
+                                .addComponent(btnEliminarReserva)
+                                .addGap(202, 202, 202))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +188,6 @@ public class Status_Reserva extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarReserva)
-                    .addComponent(btnOnReserve1)
                     .addComponent(btnVolver))
                 .addGap(35, 35, 35))
         );
@@ -220,56 +209,20 @@ public class Status_Reserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarReservaActionPerformed
-        //SE NECESITA CAMBIAR EL JPANEL A JFRAME
+      
+        BaseDatos eliminar = new BaseDatos();
+        
+        bd.eliminarDatosReserva(reserva);
 
     }//GEN-LAST:event_btnEliminarReservaActionPerformed
-
-    private void btnOnReserve1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnReserve1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOnReserve1ActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Status_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Status_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Status_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Status_Reserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Status_Reserva().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminarReserva;
-    private javax.swing.JButton btnOnReserve1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel imgPasteleria;
     private javax.swing.JLabel jLabel3;

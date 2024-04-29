@@ -1,8 +1,11 @@
 
 package principal;
 
+import com.toedter.calendar.JCalendar;
 import java.awt.Image;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -234,7 +237,8 @@ public class Editar_Reservas extends javax.swing.JPanel {
 
         //una vez agregado, hacemos limpieza
         textNombre.setText("");
-        //fecha.setText("");
+        campoPin.setText("");
+        cajaFechaI.setDate(null);
         boxHora.setText("");
         textZona.setText("");
         boxNota.setText("");
@@ -248,18 +252,26 @@ public class Editar_Reservas extends javax.swing.JPanel {
         //NECESITO EL CODIGO DEL JCALENDER
         Reserva datos= buscar.buscarDatosReserva(pin_reserva);
         textNombre.setText(datos.getNombre());
-        /*fecha.setText("");*/
+        
+        try{
+            var fechatest = datos.getFecha();
+            Date fecha = new SimpleDateFormat("yyyy-MM-dd").parse(fechatest);
+            cajaFechaI.setDate(fecha);
+        }catch(Exception e){
+            System.out.print("error: " + e);
+        }
+        
+        //cajaFechaI.setDate(datos.getFecha());
         boxHora.setText(datos.getHora());
         textZona.setText(datos.getNombreZona());
         boxNota.setText(datos.getDescripcion());
-        campoPin.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         campoPin.setText("");
         textNombre.setText("");
-        /*fecha.setText("");*/
+        cajaFechaI.setDate(null);
         boxHora.setText("");
         textZona.setText("");
         boxNota.setText("");
