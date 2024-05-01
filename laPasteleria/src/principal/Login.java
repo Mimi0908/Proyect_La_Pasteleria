@@ -19,7 +19,7 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
-        
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icono.png")));
         Image icono = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/logo-principal.png"));
         icono= icono.getScaledInstance(logotipo.getWidth(), logotipo.getHeight(), Image.SCALE_SMOOTH);
         logotipo.setIcon(new ImageIcon(icono));

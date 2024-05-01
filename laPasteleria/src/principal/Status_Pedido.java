@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package principal;
+import java.awt.Toolkit;
+import javax.swing.*;
 import utils.*;
 
 public class Status_Pedido extends javax.swing.JFrame {
@@ -19,7 +21,9 @@ public class Status_Pedido extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icono.png")));
         ponerDatos();
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -253,7 +257,11 @@ public class Status_Pedido extends javax.swing.JFrame {
     
     private void ponerDatos(){
         Encargo datos = bd.buscarDatosEncargo(pedido);
-        textOrder.setText(datos.getAnexos());
+        textOrder.setText("<html>" + datos.getAnexos() + "</html>");
+        textOrder.setVerticalAlignment(SwingConstants.TOP); 
+        textOrder.setHorizontalAlignment(SwingConstants.LEFT); 
+        textOrder.setSize(textOrder.getPreferredSize()); 
+        
         textName.setText(datos.getNombre());
         textDate.setText(datos.getFechaEntrega());
         textStatusOrder.setText(datos.getEstado());

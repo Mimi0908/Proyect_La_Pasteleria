@@ -4,6 +4,7 @@
  */
 package principal;
 
+import java.awt.Toolkit;
 import utils.Usuarios;
 
 /**
@@ -23,6 +24,7 @@ public class viewPedidos extends javax.swing.JFrame {
          setResizable(false);
          setLocationRelativeTo(null);
         setVisible(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icono.png")));
     }
      
     @SuppressWarnings("unchecked")

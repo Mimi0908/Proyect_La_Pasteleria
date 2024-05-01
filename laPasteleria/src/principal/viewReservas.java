@@ -1,5 +1,6 @@
 
 package principal;
+import java.awt.Toolkit;
 import utils.*;
 public class viewReservas extends javax.swing.JFrame {
 
@@ -15,6 +16,7 @@ public class viewReservas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icono.png")));
     }
 
     
