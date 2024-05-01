@@ -2,7 +2,10 @@
 package principal;
 
 import java.awt.Image;
+import com.toedter.calendar.JCalendar;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import utils.*;
@@ -230,10 +233,16 @@ public class Editar_Pedidos extends javax.swing.JPanel {
         //NECESITO EL CODIGO DEL JCALENDER
         Encargo datos= buscar.buscarDatosEncargo(pin_reserva);
         textNombre.setText(datos.getNombre());
-        textFechaPedido.setText(datos.getFechaEntrega());
+        textFechaPedido.setText(datos.getFechaRealizada());
         campoDescripcion.setText(datos.getAnexos());
         textEstado.setText(datos.getEstado());
-        /*fecha.setText("");*/
+        try{
+            var fechatest = datos.getFechaEntrega();
+            Date fecha = new SimpleDateFormat("yyyy-MM-dd").parse(fechatest);
+            textFechaP.setDate(fecha);
+        }catch(Exception e){
+            System.out.print("error: " + e);
+        }
         
         
         

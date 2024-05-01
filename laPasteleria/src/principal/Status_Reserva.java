@@ -4,7 +4,7 @@
  */
 package principal;
 
-import utils.BaseDatos;
+import utils.*;
 
 /**
  *
@@ -26,6 +26,7 @@ public class Status_Reserva extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        ponerDatos();
     }
     
     @SuppressWarnings("unchecked")
@@ -35,7 +36,7 @@ public class Status_Reserva extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnEliminarReserva = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        textStatusReserve = new javax.swing.JLabel();
+        textZona = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         textDate = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -64,17 +65,17 @@ public class Status_Reserva extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("ESTADO DE LA RESERVA:");
+        jLabel5.setText("ZONA:");
 
-        textStatusReserve.setBackground(new java.awt.Color(255, 255, 255));
-        textStatusReserve.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        textStatusReserve.setForeground(new java.awt.Color(255, 255, 255));
-        textStatusReserve.setText("---------------------------");
+        textZona.setBackground(new java.awt.Color(255, 255, 255));
+        textZona.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        textZona.setForeground(new java.awt.Color(255, 255, 255));
+        textZona.setText("---------------------------");
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("FECHA DE ENTREGA:");
+        jLabel4.setText("FECHA RESERVA:");
 
         textDate.setBackground(new java.awt.Color(255, 255, 255));
         textDate.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -155,7 +156,7 @@ public class Status_Reserva extends javax.swing.JFrame {
                     .addComponent(textReserve)
                     .addComponent(textName)
                     .addComponent(textDate)
-                    .addComponent(textStatusReserve))
+                    .addComponent(textZona))
                 .addGap(92, 92, 92))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,7 +185,7 @@ public class Status_Reserva extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(textDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textStatusReserve)))
+                        .addComponent(textZona)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarReserva)
@@ -216,6 +217,14 @@ public class Status_Reserva extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEliminarReservaActionPerformed
 
+    private void ponerDatos(){
+        Reserva datos = bd.buscarDatosReserva(reserva);
+        textReserve.setText(datos.getDescripcion());
+        textName.setText(datos.getNombre());
+        textDate.setText(datos.getFecha()+"-"+datos.getHora());
+        textZona.setText(datos.getNombreZona());
+    }
+    
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -234,7 +243,7 @@ public class Status_Reserva extends javax.swing.JFrame {
     private javax.swing.JLabel textDate;
     private javax.swing.JLabel textName;
     private javax.swing.JLabel textReserve;
-    private javax.swing.JLabel textStatusReserve;
+    private javax.swing.JLabel textZona;
     private javax.swing.JLabel titleReserve;
     // End of variables declaration//GEN-END:variables
 }

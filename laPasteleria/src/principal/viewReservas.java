@@ -152,7 +152,7 @@ public class viewReservas extends javax.swing.JFrame {
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         pantallaInicial.removeAll();
         // creara una instancia del nuevo contenedor
-        PanelCrearReservas nuevo = new PanelCrearReservas();
+        PanelCrearReservas nuevo = new PanelCrearReservas(usuario);
         // ajustar el tamaño del nuevo contenedor
         nuevo.setSize(pantallaInicial.getSize());
         nuevo.setPreferredSize(pantallaInicial.getPreferredSize());
