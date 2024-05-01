@@ -12,8 +12,6 @@ import utils.ButtonRenderer;
 
 
 public class TablaReservas extends javax.swing.JPanel {
-    //btn global para evitar que todos los botones tengan el mismo evento
-    JButton btn = new JButton();
     //instancia de la tabla
     private DefaultTableModel modelo;  
     //instancia Datos
@@ -28,20 +26,13 @@ public class TablaReservas extends javax.swing.JPanel {
         
         initColumnBotons();
         
-        
-        btn.setBackground(Color.RED);
-        Toolkit toolkit = btn.getToolkit();
-        Image icono_editar = toolkit.createImage(ClassLoader.getSystemResource("imagenes/icono.png"));
-        icono_editar = icono_editar.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-        btn.setIcon(new ImageIcon(icono_editar));
-        
         //extraer la tabla
         modelo = (DefaultTableModel) jTable1.getModel();
         
            
         
         //imprimir la info que hay en la base de datos
-        database.imprimirDatosReservasChef(modelo, btn);
+        database.imprimirDatosReservasChef(modelo);
     }
     
     public void initColumnBotons(){
