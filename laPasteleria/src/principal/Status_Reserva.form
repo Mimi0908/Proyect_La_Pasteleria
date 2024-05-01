@@ -81,7 +81,7 @@
                       <Component id="textReserve" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="textName" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="textDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="textStatusReserve" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="textZona" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
               </Group>
@@ -115,7 +115,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="textDate" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="textStatusReserve" min="-2" max="-2" attributes="0"/>
+                          <Component id="textZona" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
@@ -157,10 +157,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ESTADO DE LA RESERVA:"/>
+            <Property name="text" type="java.lang.String" value="ZONA:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="textStatusReserve">
+        <Component class="javax.swing.JLabel" name="textZona">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -185,7 +185,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="FECHA DE ENTREGA:"/>
+            <Property name="text" type="java.lang.String" value="FECHA RESERVA:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="textDate">

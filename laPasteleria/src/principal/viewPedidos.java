@@ -21,6 +21,7 @@ public class viewPedidos extends javax.swing.JFrame {
      public void initAlternComponent(){
         setTitle("pasteles pedidos");
          setResizable(false);
+         setLocationRelativeTo(null);
         setVisible(true);
     }
      
