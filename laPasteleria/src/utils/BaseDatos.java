@@ -129,6 +129,7 @@ public class BaseDatos {
                 do {
                     int idEncargo = registros.getInt("Id_encargo");
                     //se colocan todos los datos de los encargos
+                    
                     Object datos1[] = new Object[]{registros.getString("Id_encargo"), registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("Descripcion"), registros.getString("FechaEntrega"), btn};
                     modelo.addRow(datos1);
                     btn.addActionListener(new ActionListener() {
