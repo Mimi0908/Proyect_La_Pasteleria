@@ -58,37 +58,33 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jSeparator1" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="etqOrden" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="etqEstadoPedido" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="etqFechaEntrega" min="-2" max="-2" attributes="0"/>
-                                      <Component id="etqNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="textDate" max="32767" attributes="0"/>
-                              <Component id="textStatusOrder" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textOrder" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="etqNombre" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="textName" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="etqFechaEntrega" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="textDate" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="etqEstadoPedido" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="textStatusOrder" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jSeparator1" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="etqOrden" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                          <Component id="textOrder" min="-2" pref="256" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="117" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,27 +96,30 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="etqOrden" max="32767" attributes="0"/>
-                      <Component id="textOrder" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="textOrder" pref="136" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="etqOrden" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="etqNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="textName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="etqFechaEntrega" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="textDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="etqEstadoPedido" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="textStatusOrder" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnStart" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnMaking" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -275,7 +274,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="---------------------------"/>
+            <Property name="text" type="java.lang.String" value="-------------------------------------------------------"/>
             <Property name="verticalAlignment" type="int" value="1"/>
             <Property name="autoscrolls" type="boolean" value="true"/>
             <Property name="horizontalTextPosition" type="int" value="2"/>
