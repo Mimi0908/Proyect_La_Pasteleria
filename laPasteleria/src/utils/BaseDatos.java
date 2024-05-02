@@ -1,8 +1,12 @@
 package utils;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -10,6 +14,7 @@ import principal.viewPedidos;
 import principal.PasteleriaChef;
 import principal.Status_Pedido;
 import principal.Status_Reserva;
+import principal.TablaPedidos;
 
 public class BaseDatos {
 
@@ -113,7 +118,7 @@ public class BaseDatos {
         }
     }
 
-    public void imprimirDatosEncargoChef(DefaultTableModel modelo, JButton btn) {
+    public void imprimirDatosEncargoChef(DefaultTableModel modelo) {
 
         //se crea la tabla y el metodo donde se guarda los datos
         ResultSet registros = null;
@@ -121,25 +126,38 @@ public class BaseDatos {
 
         try {
             //se cogen los datos
+
             String consulta = "SELECT persona.Nombre, persona.Apellido, encargo.* FROM (encargo INNER JOIN persona ON encargo.persona_Id=persona.ID_persona)";
             registros = manipularDB.executeQuery(consulta);
             registros.next();
             //si los datos estan en primera fila 
             if (registros.getRow() == 1) {
                 do {
+                    //creación efímera del botón
+                    JButton boton = new JButton();
+                    //configuración del botón
+                    boton.setBackground(Color.RED);
+                    Toolkit toolkit = boton.getToolkit();
+                    Image icono_editar = toolkit.createImage(ClassLoader.getSystemResource("imagenes/icono.png"));
+                    icono_editar = icono_editar.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+                    boton.setIcon(new ImageIcon(icono_editar));
+
                     int idEncargo = registros.getInt("Id_encargo");
                     //se colocan todos los datos de los encargos
-                    
-                    Object datos1[] = new Object[]{registros.getString("Id_encargo"), registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("Descripcion"), registros.getString("FechaEntrega"), btn};
-                    modelo.addRow(datos1);
-                    btn.addActionListener(new ActionListener() {
+
+                    boton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            
+
                             // creara una instancia del nuevo contenedor
                             Status_Pedido pedido = new Status_Pedido(idEncargo);
                         }
                     });
+
+                    Object datos1[] = new Object[]{registros.getString("Id_encargo"), registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("Descripcion"), registros.getString("FechaEntrega"), boton};
+
+                    modelo.addRow(datos1);
+
                 } while (registros.next());
             } else {
                 System.out.println("No se encuentran clientes registrados.");
@@ -151,7 +169,7 @@ public class BaseDatos {
     }
 
     //se imprimen los datos de las reservas en una tabla
-    public void imprimirDatosReservasChef(DefaultTableModel modelo, JButton btn) {
+    public void imprimirDatosReservasChef(DefaultTableModel modelo) {
         //se crea la tabla y el metodo donde se guarda los datos
         ResultSet registros = null;
         modelo.setRowCount(0);
@@ -163,19 +181,29 @@ public class BaseDatos {
             //si los datos estan en primera fila
             if (registros.getRow() == 1) {
                 do {
+                    //instancia del boton
+                    JButton btn = new JButton();
+
+                    //configuración del botón
+                    btn.setBackground(Color.RED);
+                    Toolkit toolkit = btn.getToolkit();
+                    Image icono_editar = toolkit.createImage(ClassLoader.getSystemResource("imagenes/icono.png"));
+                    icono_editar = icono_editar.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+                    btn.setIcon(new ImageIcon(icono_editar));
+
                     int idReserva = registros.getInt("Id_reserva");
                     Object datos1[] = new Object[]{registros.getString("Id_reserva"), registros.getString("Nombre") + " " + registros.getString("Apellido"), registros.getString("FechaReserva"), registros.getString("Zona"), registros.getString("horaReserva"), registros.getString("Anexos"), registros.getString("Precio"), registros.getString("Abono"), registros.getString("SaldoPendiente"), registros.getString("nombreEncargado") + " " + registros.getString("apellidoEncargado"), btn};
                     modelo.addRow(datos1);
-                    
+
                     btn.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            
+
                             // creara una instancia del nuevo contenedor
                             Status_Reserva reserva = new Status_Reserva(idReserva);
                         }
                     });
-                    
+
                 } while (registros.next());
             } else {
                 System.out.println("No se encuentran clientes registrados.");
