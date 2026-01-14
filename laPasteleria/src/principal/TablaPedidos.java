@@ -15,8 +15,7 @@ import utils.ButtonRenderer;
  
 
 public class TablaPedidos extends javax.swing.JPanel {
-    //btn global para evitar que todos los botones tengan el mismo evento
-    JButton btn = new JButton();
+   
     //instancia de la tabla
     private DefaultTableModel modelo;  
     //instancia Datos
@@ -30,19 +29,15 @@ public class TablaPedidos extends javax.swing.JPanel {
         //tomamos el contenedor del JFrame pasteleria chef, para organizarlo en el archivo BaseDatos
         
         initColumnBotons();
+        JButton btn = new JButton();
         
-        btn.setBackground(Color.RED);
-        Toolkit toolkit = btn.getToolkit();
-        Image icono_editar = toolkit.createImage(ClassLoader.getSystemResource("imagenes/icono.png"));
-        icono_editar = icono_editar.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-        btn.setIcon(new ImageIcon(icono_editar));
         
         //extraer la tabla
         modelo = (DefaultTableModel) jTable1.getModel();
         
  
         //imprimir la info que hay en la base de datos
-        database.imprimirDatosEncargoChef(modelo, btn);
+        database.imprimirDatosEncargoChef(modelo);
     }
     
     //función para hacer el código mas legible
@@ -59,6 +54,7 @@ public class TablaPedidos extends javax.swing.JPanel {
         jTable1.getColumnModel().getColumn(3).setPreferredWidth(1);
         jTable1.getColumnModel().getColumn(4).setPreferredWidth(10);
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

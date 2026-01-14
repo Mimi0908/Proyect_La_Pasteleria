@@ -4,6 +4,7 @@
  */
 package principal;
 
+import java.awt.Toolkit;
 import utils.Usuarios;
 
 /**
@@ -21,7 +22,9 @@ public class viewPedidos extends javax.swing.JFrame {
      public void initAlternComponent(){
         setTitle("pasteles pedidos");
          setResizable(false);
+         setLocationRelativeTo(null);
         setVisible(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icono.png")));
     }
      
     @SuppressWarnings("unchecked")
@@ -131,10 +134,10 @@ public class viewPedidos extends javax.swing.JFrame {
         );
         pantallaInicialLayout.setVerticalGroup(
             pantallaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pantallaInicialLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(logotipo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pantallaInicialLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(logotipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package principal;
+import java.awt.Toolkit;
+import javax.swing.*;
 import utils.*;
 
 public class Status_Pedido extends javax.swing.JFrame {
@@ -19,7 +21,9 @@ public class Status_Pedido extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icono.png")));
         ponerDatos();
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -109,7 +113,7 @@ public class Status_Pedido extends javax.swing.JFrame {
         textOrder.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         textOrder.setForeground(new java.awt.Color(255, 255, 255));
         textOrder.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        textOrder.setText("---------------------------");
+        textOrder.setText("-------------------------------------------------------");
         textOrder.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         textOrder.setAutoscrolls(true);
         textOrder.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -156,60 +160,57 @@ public class Status_Pedido extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnFinish)
                 .addGap(27, 27, 27))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(169, 169, 169))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(etqOrden)
-                                    .addGap(145, 145, 145))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(etqEstadoPedido)
-                                    .addGap(18, 18, 18)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etqFechaEntrega)
-                                    .addComponent(etqNombre))
-                                .addGap(21, 21, 21)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textDate)
-                            .addComponent(textName)
-                            .addComponent(textStatusOrder)
-                            .addComponent(textOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(etqNombre)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textName))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(etqFechaEntrega)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textDate))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(etqEstadoPedido)
+                            .addGap(18, 18, 18)
+                            .addComponent(textStatusOrder))
+                        .addComponent(jSeparator1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(etqOrden)
+                        .addGap(111, 111, 111)
+                        .addComponent(textOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(imgPasteleria, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(etqOrden)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(textOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etqNombre)
                     .addComponent(textName))
-                .addGap(30, 30, 30)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etqFechaEntrega)
                     .addComponent(textDate))
-                .addGap(27, 27, 27)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etqEstadoPedido)
                     .addComponent(textStatusOrder))
-                .addGap(44, 44, 44)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnStart)
                     .addComponent(btnMaking)
@@ -253,7 +254,11 @@ public class Status_Pedido extends javax.swing.JFrame {
     
     private void ponerDatos(){
         Encargo datos = bd.buscarDatosEncargo(pedido);
-        textOrder.setText(datos.getAnexos());
+        textOrder.setText("<html>" + datos.getAnexos() + "</html>");
+        textOrder.setVerticalAlignment(SwingConstants.TOP); 
+        textOrder.setHorizontalAlignment(SwingConstants.LEFT); 
+        textOrder.setSize(textOrder.getPreferredSize()); 
+        
         textName.setText(datos.getNombre());
         textDate.setText(datos.getFechaEntrega());
         textStatusOrder.setText(datos.getEstado());

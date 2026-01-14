@@ -4,7 +4,9 @@
  */
 package principal;
 
-import utils.BaseDatos;
+import java.awt.Toolkit;
+import javax.swing.SwingConstants;
+import utils.*;
 
 /**
  *
@@ -26,6 +28,8 @@ public class Status_Reserva extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icono.png")));
+        ponerDatos();
     }
     
     @SuppressWarnings("unchecked")
@@ -35,7 +39,7 @@ public class Status_Reserva extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnEliminarReserva = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        textStatusReserve = new javax.swing.JLabel();
+        textZona = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         textDate = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -64,17 +68,17 @@ public class Status_Reserva extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("ESTADO DE LA RESERVA:");
+        jLabel5.setText("ZONA:");
 
-        textStatusReserve.setBackground(new java.awt.Color(255, 255, 255));
-        textStatusReserve.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        textStatusReserve.setForeground(new java.awt.Color(255, 255, 255));
-        textStatusReserve.setText("---------------------------");
+        textZona.setBackground(new java.awt.Color(255, 255, 255));
+        textZona.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        textZona.setForeground(new java.awt.Color(255, 255, 255));
+        textZona.setText("---------------------------");
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("FECHA DE ENTREGA:");
+        jLabel4.setText("FECHA RESERVA:");
 
         textDate.setBackground(new java.awt.Color(255, 255, 255));
         textDate.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -105,7 +109,8 @@ public class Status_Reserva extends javax.swing.JFrame {
         textReserve.setBackground(new java.awt.Color(255, 255, 255));
         textReserve.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         textReserve.setForeground(new java.awt.Color(255, 255, 255));
-        textReserve.setText("---------------------------");
+        textReserve.setText("---------------------------------------------------");
+        textReserve.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         titleReserve.setBackground(new java.awt.Color(255, 255, 255));
         titleReserve.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
@@ -133,63 +138,67 @@ public class Status_Reserva extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titleReserve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 41, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(0, 137, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textZona))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                    .addComponent(textDate))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textReserve, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(133, 133, 133))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnVolver)
-                                .addGap(68, 68, 68)
-                                .addComponent(btnEliminarReserva)
-                                .addGap(202, 202, 202))))))
+                                .addComponent(jLabel3)
+                                .addGap(105, 105, 105)
+                                .addComponent(textName)))
+                        .addGap(97, 97, 97))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textReserve)
-                    .addComponent(textName)
-                    .addComponent(textDate)
-                    .addComponent(textStatusReserve))
-                .addGap(92, 92, 92))
+                .addGap(26, 26, 26)
+                .addComponent(btnVolver)
+                .addGap(102, 102, 102)
+                .addComponent(btnEliminarReserva)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(imgPasteleria, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(titleReserve)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(textReserve))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textReserve, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(textName)
-                        .addGap(18, 18, 18)
-                        .addComponent(textDate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textStatusReserve)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(textName))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(textDate))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(textZona))
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarReserva)
                     .addComponent(btnVolver))
-                .addGap(35, 35, 35))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -200,9 +209,9 @@ public class Status_Reserva extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -216,6 +225,17 @@ public class Status_Reserva extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEliminarReservaActionPerformed
 
+    private void ponerDatos(){
+        Reserva datos = bd.buscarDatosReserva(reserva);
+        textReserve.setText("<html>" + datos.getDescripcion() + "</html>");
+        textReserve.setVerticalAlignment(SwingConstants.TOP); 
+        textReserve.setHorizontalAlignment(SwingConstants.LEFT); 
+        textReserve.setSize(textReserve.getPreferredSize()); 
+        textName.setText(datos.getNombre());
+        textDate.setText(datos.getFecha()+"-"+datos.getHora());
+        textZona.setText(datos.getNombreZona());
+    }
+    
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -234,7 +254,7 @@ public class Status_Reserva extends javax.swing.JFrame {
     private javax.swing.JLabel textDate;
     private javax.swing.JLabel textName;
     private javax.swing.JLabel textReserve;
-    private javax.swing.JLabel textStatusReserve;
+    private javax.swing.JLabel textZona;
     private javax.swing.JLabel titleReserve;
     // End of variables declaration//GEN-END:variables
 }
